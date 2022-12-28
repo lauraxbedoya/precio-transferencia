@@ -1,0 +1,27 @@
+.mainStyleInput {
+  display: inline-block !important;
+  font-size: 14px !important;
+  color: rgba(0, 0, 0, 0.65) !important;
+  border: 1px solid #d9d9d9 !important;
+  transition: all .3s !important;
+}
+
+.mainStyleInput:hover {
+  border: 2px solid #7F7FD5 !important;
+  transition: all .3s !important;
+}
+
+.inputXl {
+  width: 450px;
+}
+
+.inputMd {
+  height: 40px;
+  border-radius: 4px;
+  padding: 6.5px 11px;
+  width: 400px;
+}
+
+.inputSm {
+  width: 300px;
+}

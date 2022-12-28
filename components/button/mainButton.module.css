@@ -1,0 +1,53 @@
+.mainButton { 
+  color: #fff !important;
+  background-color: #86A8E7 !important;
+  border: 0 solid transparent !important;
+  padding: 8px 20px !important;
+  justify-content: center !important;
+  font-family: Extatica,sans-serif !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.mainButton:hover {
+  background-color: #91EAE4 !important;
+  color: #393f4aae !important;
+}
+
+
+/* sizes */
+.buttonSm {
+  width: 160px !important;
+  margin-bottom: 21px !important;
+  font-size: 14px !important;
+  padding: 8px 20px !important;
+  font-weight: 400 !important;
+  height: 40px !important;
+}
+
+.buttonMd {
+  padding: 15px 20px !important;
+  font-size: 20px !important;
+  line-height: 24px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+.buttonLg {
+  padding: 15px 20px !important;
+  border-radius: 30px !important;
+  font-size: 20px !important;
+  line-height: 24px !important;
+  font-weight: 600 !important;
+  padding-right: 80px !important;
+  padding-left: 80px !important;
+}
+
+.buttonXl {
+  font-size: 38px !important;
+  line-height: 1.2 !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  border-radius: 50px !important;
+  padding: 25px 100px !important;
+}

@@ -1,11 +1,6 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 
-
-import "primereact/resources/themes/mdc-light-deeppurple/theme.css";
-import "primereact/resources/primereact.min.css";
-import "primeicons/primeicons.css";
-
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {

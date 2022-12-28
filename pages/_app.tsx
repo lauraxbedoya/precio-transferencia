@@ -3,9 +3,12 @@ import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import { store } from '../redux/store'
 import { useEffect, useState } from 'react'
-import PrivateLayout from '../components/private-layout'
+import Layout from '../components/layout'
 import { useRouter } from 'next/router'
-import SignIn from './sign-in'
+
+import "primereact/resources/themes/mdc-light-deeppurple/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
 
 export default function App({ Component, pageProps }: AppProps) {
 
@@ -35,8 +38,8 @@ export default function App({ Component, pageProps }: AppProps) {
   }
 
   return <Provider store={store}>
-    {isUserLogged ? (<PrivateLayout onLogout={handleLogout}>
+    {isUserLogged ? (<Layout onLogout={handleLogout}>
       <Component {...pageProps} />
-    </PrivateLayout>) : <> <Component {...pageProps} /></>}
+    </Layout>) : <> <Component {...pageProps} /></>}
   </Provider>
 }

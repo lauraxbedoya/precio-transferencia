@@ -1,0 +1,54 @@
+.mainText {
+  font-family: Extatica,sans-serif;
+  text-align: center;
+}
+
+/* sizes */
+.textXxl {
+  font-size: 48px;
+  line-height: 1.1;
+}
+
+.textXl {
+  line-height: 37px;
+  font-weight: 700;
+}
+
+.textMd {
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.textSm {
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.textXs {
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.textXxs {
+  font-size: 12px;
+  line-height: 14px;
+  text-decoration: none;
+}
+
+/* weights */
+.textW400 {
+  font-weight: 400;
+}
+
+.textW500 {
+  font-weight: 500;
+}
+
+.textW600 {
+  font-weight: 600;
+}
+
+.textW700 {
+  font-weight: 700;
+}
