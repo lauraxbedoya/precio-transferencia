@@ -1,5 +1,5 @@
 import { HTMLAttributes, useEffect, useState } from "react";
-import styles from './text.module.css';
+import styles from './text.module.scss';
 
 export interface PTTextProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'children'> {
   children: string;

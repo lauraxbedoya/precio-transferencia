@@ -1,0 +1,9 @@
+@import './colors.scss';
+@import './theme.scss';
+
+
+body {
+  background-color: var(--page-background);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+}

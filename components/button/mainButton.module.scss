@@ -1,6 +1,6 @@
 .mainButton { 
-  color: #fff !important;
-  background-color: #86A8E7 !important;
+  color: var(--primary-text-color) !important;
+  background: var(--primary-color) !important;
   border: 0 solid transparent !important;
   padding: 8px 20px !important;
   justify-content: center !important;
@@ -10,8 +10,8 @@
 }
 
 .mainButton:hover {
-  background-color: #91EAE4 !important;
-  color: #393f4aae !important;
+  background: var(--secondary-color) !important;
+  color: var(--secondary-text-color) !important;
 }
 
 
@@ -19,7 +19,7 @@
 .buttonSm {
   width: 160px !important;
   margin-bottom: 21px !important;
-  font-size: 14px !important;
+  font-size: var(--font-size-xs) !important;
   padding: 8px 20px !important;
   font-weight: 400 !important;
   height: 40px !important;

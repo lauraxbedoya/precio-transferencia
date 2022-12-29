@@ -1,6 +1,6 @@
 import { InputText, InputTextProps } from 'primereact/inputtext';
 import { useEffect, useState } from 'react';
-import styles from './input.module.css';
+import styles from './input.module.scss';
 
 export interface PTInputProps extends Omit<InputTextProps, 'size'> {
   size?: 'xl' | 'md' | 'sm';

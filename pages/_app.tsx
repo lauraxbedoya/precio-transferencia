@@ -1,14 +1,13 @@
-import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import { store } from '../redux/store'
 import { useEffect, useState } from 'react'
 import Layout from '../components/layout'
 import { useRouter } from 'next/router'
-
 import "primereact/resources/themes/mdc-light-deeppurple/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
+import '../styles/globals.scss'
 
 export default function App({ Component, pageProps }: AppProps) {
 

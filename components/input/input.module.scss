@@ -1,13 +1,13 @@
 .mainStyleInput {
   display: inline-block !important;
   font-size: 14px !important;
-  color: rgba(0, 0, 0, 0.65) !important;
-  border: 1px solid #d9d9d9 !important;
+  color: var(--black-color) !important;
+  border: 1px solid var(--border-input-color) !important;
   transition: all .3s !important;
 }
 
 .mainStyleInput:hover {
-  border: 2px solid #7F7FD5 !important;
+  border: 2px solid var(--ternary-color) !important;
   transition: all .3s !important;
 }
 
