@@ -66,7 +66,6 @@ export default function SignIn() {
           onClick={handleSignIn}
         >Sign In</button>
       </div>
-      <a href="sign-up">Log out</a>
 
       {error && <h3>{error}</h3>}
       {user && <pre>{user.email}</pre>}

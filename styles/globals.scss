@@ -3,7 +3,26 @@
 
 
 body {
+  margin: 0px;
   background-color: var(--page-background);
   font-family: var(--font-family);
   font-size: var(--font-size-sm);
+}
+
+.layout-container {
+  .nav-items {
+    border: 0px;
+    display: inline-block;
+  }
+  .p-submenu-icon.pi.pi-angle-down {
+    display: none;
+  }
+  .p-menuitem-text {
+    overflow: visible;
+    font-family: Extatica,sans-serif;
+    letter-spacing: -.04px;
+    color: var(--nav-text-color);
+    font-size: 14px;
+    line-height: 20px;
+  }
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button, ButtonProps } from 'primereact/button';
-import styles from './mainButton.module.scss';
+import styles from './pt-button.module.scss';
 
 
 export interface PTButtonProps extends ButtonProps {
