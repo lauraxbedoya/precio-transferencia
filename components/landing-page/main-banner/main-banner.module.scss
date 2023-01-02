@@ -1,0 +1,87 @@
+.container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 60vh;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #995151;
+  background-image: -webkit-gradient(linear,right top,left top,from(#48e5ad),to(#006a65));
+  background-image: linear-gradient(270deg, var(--primary-color), var(--ternary-color));
+  background-clip: padding-box;
+  -webkit-text-fill-color: inherit;
+  -o-object-fit: none;
+  object-fit: none;
+}
+
+.heroHome {
+  padding-top: 0;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  background-color: hsla(0,0%,100%,0);
+}
+
+.servicesTextBox {
+  margin-bottom: 20px;
+  padding-right: 40px;
+}
+
+.wrapper {
+  z-index: auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding-bottom: 0;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  text-align: left;
+}
+
+.containerButton {
+  display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.section {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  margin-top: -2px;
+  padding: 100px 40px 10px;
+  justify-content: center;
+  text-align: left;
+}
+
+.heading {
+  margin-bottom: 20px;
+  font-family: Extatica,sans-serif;
+  color: #fff;
+  font-size: 48px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.textBody {
+  margin-bottom: 0;
+  font-family: Extatica,sans-serif;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: left;
+  text-decoration: none;
+}

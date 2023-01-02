@@ -6,12 +6,14 @@ import styles from './pt-button.module.scss';
 export interface PTButtonProps extends ButtonProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   color?: 'primary' | 'secondary';
+  isMain: boolean;
 }
 
 export default function PTButton({
   children,
   color = 'primary',
   size = 'md',
+  isMain = true,
   ...props
 }: PTButtonProps) {
 
@@ -42,8 +44,13 @@ export default function PTButton({
   return (
     <Button
       {...props}
-      className={`${styles.mainButton} p-button-rounded ${customClass}`}
+      className={`${styles.mainButton} p-button-rounded ${customClass} ${!isMain ? styles.buttonSecondary : ''}`}
     >{children}
     </Button>
   )
 }
+
+
+
+
+// style={{ background: isMain ? '#7F7FD5' : '#91EAE4' }}

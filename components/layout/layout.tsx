@@ -81,6 +81,7 @@ function Layout({ children, onLogout }: Props) {
         <div className={styles.navContainer}>
           <Menubar className='nav-items' model={items} />
           <PTButton
+            isMain={true}
             onClick={onLogout}
             size="sm"
           >Cerrar Sesión

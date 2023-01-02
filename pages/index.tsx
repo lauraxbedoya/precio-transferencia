@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
+import LandingPage from '../components/landing-page/landing-page'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,8 +15,7 @@ export default function Home() {
         <link rel="stylesheet" href="https://unpkg.com/primeicons/primeicons.css" />
       </Head>
       <main>
-        <a href='sign-in'>Sign In</a>
-        <a href='sign-up'>Sign Up</a>
+        <LandingPage />
       </main>
     </>
   )
