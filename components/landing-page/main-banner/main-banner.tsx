@@ -3,7 +3,7 @@ import styles from './main-banner.module.scss';
 
 export default function MainBanner() {
   return (
-    <div className={`${styles.container} ${styles.section} ${styles.heroHome}`}>
+    <div className={`${styles.container} ${styles.section}`}>
       <div className={styles.servicesTextBox}>
         <div className={styles.wrapper}>
           <h1 className={styles.heading}>Tu declaración de renta 2023, segura y garantizada</h1>
