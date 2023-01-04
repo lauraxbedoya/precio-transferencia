@@ -1,4 +1,5 @@
 import PTButton from '../../../button/pt-button';
+import PTText from '../../../text/pt-text';
 import styles from './paid-plans-component.module.scss';
 
 export interface PaidPlansProps {
@@ -12,7 +13,7 @@ export default function PaidPlansComponent({ title, price, textContent, isPro }:
   return (
     <div className={styles.pricingV1Card} style={!isPro ? { backgroundColor: 'var(--white-color)' } : { backgroundColor: '' }}>
       <div className={styles.pricingV1Badge} style={!isPro ? { backgroundColor: 'var(--white-color)' } : { backgroundColor: '#7d00ff' }}></div>
-      <h3 className={styles.headingBox}>{title}</h3>
+      <PTText size='xl' weight='700' className={styles.headingBox}>{title}</PTText>
       <div className={styles.smallDivider} style={isPro ? { background: 'var(--white-color)' } : { background: 'var(--primary-color)' }}></div>
 
       <div className={styles.pricingTag}>
@@ -23,7 +24,7 @@ export default function PaidPlansComponent({ title, price, textContent, isPro }:
 
       <div className={styles.pricingFeatures}>
         <div className={styles.pricingListItem}>
-          <div>{textContent}</div>
+          <PTText size='xs' weight='400'>{textContent}</PTText>
         </div>
       </div>
 

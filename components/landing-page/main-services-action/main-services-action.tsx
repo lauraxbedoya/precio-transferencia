@@ -2,13 +2,14 @@ import styles from './main-services-action.module.scss';
 import curvesBackground from '../../../public/finanzas-personales-impuestos-banner.png';
 import Image from 'next/image';
 import ServicesActionComponent from './component/services-action-component';
+import PTText from '../../text/pt-text';
 
 export default function MainServicesAction() {
   return (
     <>
       <Image src={curvesBackground} className={styles.imageCurves} />
       <div className={`${styles.sectionHome} ${styles.grade}`}>
-        <h2 className={styles.heading}>¿Ya sabes si te toca y cuándo tienes que declarar renta?</h2>
+        <PTText size='xl' weight='700' className={styles.heading}>¿Ya sabes si te toca y cuándo tienes que declarar renta?</PTText>
 
         <div className={styles.featureCards}>
           <ServicesActionComponent

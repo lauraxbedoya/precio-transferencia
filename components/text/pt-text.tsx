@@ -4,7 +4,7 @@ import styles from './text.module.scss';
 export interface PTTextProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'children'> {
   children: string;
   weight: '400' | '500' | '600' | '700';
-  size: 'xxl' | 'xl' | 'md' | 'sm' | 'xs' | 'xxs';
+  size: 'xxxl' | 'xxl' | 'xl' | 'md' | 'sm' | 'xs' | 'xxs';
 }
 
 export default function PTText({
@@ -20,11 +20,15 @@ export default function PTText({
   const setSizeStyles = () => {
     let styleClass: string = '';
     switch (size) {
+      case 'xxxl':
+        styleClass = styles.textXxxl
+        break;
       case 'xxl':
         styleClass = styles.textXxl
         break;
       case 'xl':
         styleClass = styles.textXl
+        break;
       case 'md':
         styleClass = styles.textMd
         break;
@@ -68,7 +72,7 @@ export default function PTText({
   return (
     <span
       {...props}
-      className={`${styles.mainText} ${customWeightClass} ${customSizeClass}`}
+      className={`${styles.mainText} ${customWeightClass} ${customSizeClass} ${props.className}`}
     >{children}
     </span>
   )

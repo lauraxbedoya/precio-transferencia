@@ -1,33 +1,36 @@
+import PTText from '../../text/pt-text';
 import PaidPlansComponent from './component/paid-plans-component';
 import styles from './paid-plans.module.scss';
 
 export default function PaidPlans() {
   return (
     <div className={`${styles.section} ${styles.grade} ${styles.noPaddingTop}`}>
-      <div id="precios" className={styles.declaracionPlansWrapper}>
+      <div className={styles.declaracionPlansWrapper}>
         <div className={styles.sectionIntro}>
           <div className={styles.bigDivider}></div>
-          <h2 className={styles.headingPlans}>Nuestros planes - Declaración de renta</h2>
-          <div className={`${styles.title} ${styles.caps} ${styles.price}`}>tu declaración de renta en 2 días o 2 horas, CON ACOMPAÑAMIENTO POR CHAT O VIDEOLLAMADA</div>
+          <PTText size='xxl' weight='700' className={styles.headingPlans}>Nuestros planes - Declaración de renta</PTText>
+          <PTText size='sm' weight='400' className={`${styles.title} ${styles.caps} ${styles.price}`}>Tu declaración de renta en 2 días o 2 horas, CON ACOMPAÑAMIENTO POR CHAT O VIDEOLLAMADA</PTText>
         </div>
 
         <div className={styles.wColumns}>
-          <div className={`${styles.wCol} ${styles.wcol6}`}>
-            <h4 className={styles.headingUpBox}>Un contador certificado te atiende en vivo y hace todo por tí</h4>
-            <PaidPlansComponent
-              isPro
-              title="Pro"
-              price="169."
-              textContent="Te asignamos un contador Tributi Pro que hará todo por ti
-              Elaborada en 48 horas o menos
-              Tu contador te asesora de forma personalizada en reunión virtual
-              Impuesto a pagar será el mínimo valor posible
-              Garantía ante sanciones"
-            />
+          <div className={`${styles.wCol} ${styles.wCol6}`}>
+            <PTText className={styles.headingUpBox} size='sm' weight='700'>Un contador certificado te atiende en vivo y hace todo por tí</PTText>
+            <div className={styles.estandarAndExpres}>
+              <PaidPlansComponent
+                isPro
+                title="Pro"
+                price="169."
+                textContent="Te asignamos un contador Tributi Pro que hará todo por ti
+                Elaborada en 48 horas o menos
+                Tu contador te asesora de forma personalizada en reunión virtual
+                Impuesto a pagar será el mínimo valor posible
+                Garantía ante sanciones"
+              />
+            </div>
           </div>
 
-          <div className={`${styles.wCol} ${styles.wcol8}`}>
-            <h4 className={styles.headingUpBox}>Hazlo con el soporte de nuestro chat en vivo</h4>
+          <div className={`${styles.wCol} ${styles.wCol8}`}>
+            <PTText className={styles.headingUpBox} size='sm' weight='700'>Hazlo con el soporte de nuestro chat en vivo</PTText>
             <div className={styles.estandarAndExpres}>
               <PaidPlansComponent
                 isPro={false}

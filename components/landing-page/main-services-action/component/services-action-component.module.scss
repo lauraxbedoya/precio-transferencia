@@ -39,8 +39,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-family: Extatica,sans-serif;
-  font-size: 22px;
+  font-family: var(--font-family);
   line-height: 28px;
   text-align: center;
 }
@@ -56,9 +55,7 @@
 }
 
 .textGrey {
-  font-size: 13px;
   line-height: 20px;
-  font-weight: 400;
   letter-spacing: 0;
 }
 

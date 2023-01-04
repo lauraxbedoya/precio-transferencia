@@ -44,7 +44,7 @@ export default function PTButton({
   return (
     <Button
       {...props}
-      className={`${styles.mainButton} p-button-rounded ${customClass} ${!isMain ? styles.buttonSecondary : ''}`}
+      className={`${styles.mainButton} p-button-rounded ${customClass} ${!isMain ? styles.buttonSecondary : ''} ${props.className}`}
     >{children}
     </Button>
   )

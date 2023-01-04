@@ -1,10 +1,15 @@
 .mainText {
-  font-family: Extatica,sans-serif;
+  font-family: var(--font-family);
   text-align: center;
   color: var(--primary-grey-color);
 }
 
 /* sizes */
+.textXxxl {
+  font-size: var(--font-size-xxxl);
+  line-height: 1.1;
+}
+
 .textXxl {
   font-size: var(--font-size-xxl);
   line-height: 1.1;
@@ -12,7 +17,6 @@
 
 .textXl {
   font-size: var(--font-size-xl);
-  font-weight: 700;
 }
 
 .textMd {

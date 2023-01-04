@@ -30,11 +30,10 @@
   padding-bottom: 40px;
 }
 
-.heading{
+.heading {
   margin-bottom: 40px;
-  font-family: Extatica,sans-serif;
-  color: var(--ternary-color);
-  font-size: 38px;
+  font-family: var(--font-family);
+  color: var(--secondary-color) !important;
 }
 
 .featureCards {

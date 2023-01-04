@@ -1,8 +1,5 @@
 .pricingV1Card {
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   overflow: hidden;
   min-height: 600px;
@@ -10,22 +7,9 @@
   margin-bottom: 32px;
   margin-left: 15px;
   padding: 40px 20px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
   justify-content: space-around;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 auto;
-  -ms-flex: 0 auto;
-  flex: 0 auto;
   border-radius: 14px;
   background-color: #48e5ad;
   box-shadow: 0 6px 12px 0 rgb(89 98 115 / 10%);
@@ -38,30 +22,15 @@
   position: absolute;
   top: -60px;
   right: -60px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   width: 120px;
   height: 120px;
   padding-bottom: 7px;
   padding-left: 1px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
   justify-content: flex-end;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
   background-color: #253f6f;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   color: #fff;
   font-size: 12px;
@@ -70,11 +39,9 @@
 }
 
 .headingBox {
-  font-family: Extatica,sans-serif;
-  color: #005858;
-  font-size: 36px;
+  font-family: var(--font-family);
+  color: var(--ternary-color);
   line-height: 1;
-  font-weight: 700;
 }
 
 .smallDivider {
@@ -82,26 +49,16 @@
   height: 4px;
   margin-bottom: 20px;
   border: 0 #000;
-  background-color: #fff;
 }
 
 .pricingTag {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   max-height: 40%;
   margin-top: -20px;
   margin-right: 1px;
   padding-right: 0;
   padding-bottom: 10px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
   align-items: flex-start;
   font-size: 64px;
   line-height: 44px;
@@ -115,16 +72,10 @@
 }
 
 .declarationPrice {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
   align-items: flex-start;
-  font-family: Extatica,sans-serif;
-  color: #005858;
+  font-family: var(--font-family);
+  color: var(--ternary-color);
   font-size: 50px;
   font-weight: 500;
 }
@@ -136,33 +87,20 @@
 }
 
 .pricingFeatures {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   min-height: 220px;
   margin-top: 0;
   margin-bottom: 20px;
   padding-top: 0;
   padding-bottom: 0;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
   border: 1px #000;
 }
 
 .pricingListItem {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   padding-top: 8px;
   padding-bottom: 8px;
-  font-family: Extatica,sans-serif;
+  font-family: var(--font-family);
 }
