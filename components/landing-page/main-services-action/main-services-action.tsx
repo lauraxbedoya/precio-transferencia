@@ -15,14 +15,14 @@ export default function MainServicesAction() {
             titleBox="Averigua si estás obligado a declarar en 2023"
             textBox="Contesta estas preguntas y te ayudamos a determinar si estás obligado a presentar tu declaración ante la DIAN de acuerdo los topes vigentes en 2022"
             textButton="¿Debo declarar renta en 2023?"
-          ></ServicesActionComponent>
+          />
 
           <ServicesActionComponent
             titleBox="¿Hasta cuándo tienes plazo para declarar renta?"
             textBox="Si tienes que declarar renta, te decimos tu fecha límite para hacerlo en 2022 de acuerdo al número de tu cédula.
             ¡Evita sanciones!"
             textButton="Fechas para declarar renta en el 2023"
-          ></ServicesActionComponent>
+          />
         </div>
 
       </div>
