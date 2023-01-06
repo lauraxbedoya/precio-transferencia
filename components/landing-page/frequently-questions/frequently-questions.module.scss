@@ -1,0 +1,97 @@
+.section {
+  position: relative;
+  display: flex;
+  overflow: visible;
+  width: 100%;
+  text-align: left;
+}
+
+.backgroundWhite {
+  max-width: 1440px;
+  margin-top: -2px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 40px 20px;
+  justify-content: space-around;
+  align-items: flex-start;
+  background-color: var(--white-color);
+}
+
+.wrapper {
+  z-index: auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding-bottom: 0;
+  text-align: left;
+}
+
+.sectionIntro {
+  display: flex;
+  max-width: 100%;
+  margin-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.bigDivider {
+  display: flex;
+  width: 150px;
+  height: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+  border: 0 var(--main-black-color);
+  background-color: var(--primary-color);
+}
+
+.sectionHeading {
+  margin-bottom: 25px;
+  font-family: var(--font-family);
+  color: var(--ternary-color);
+  line-height: 1.1;
+}
+
+.textDarkGrey {
+  color: #596273;
+}
+
+.noMargin {
+  margin-bottom: 40px;
+  font-family: var(--font-family);
+  color: var(--ternary-color);
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.miniFaq {
+  display: flex;
+  margin-bottom: -32px;
+  padding-right: 0;
+  padding-left: 0;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.faqTestimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.button {
+  align-self: center;
+}
+
+.button:hover {
+  background-color: var(--secondary-color) !important;
+  color: var(--white-color) !important;
+}
