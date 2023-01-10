@@ -1,3 +1,4 @@
+import LineDivider from '../../line-divider/line-divider';
 import PTText from '../../text/pt-text';
 import PaidPlansComponent from './component/paid-plans-component';
 import styles from './paid-plans.module.scss';
@@ -7,7 +8,7 @@ export default function PaidPlans() {
     <div className={`${styles.section} ${styles.grade} ${styles.noPaddingTop}`}>
       <div className={styles.declaracionPlansWrapper}>
         <div className={styles.sectionIntro}>
-          <div className={styles.bigDivider}></div>
+          <LineDivider />
           <PTText size='xxl' weight='700' className={styles.headingPlans}>Nuestros planes - Declaración de renta</PTText>
           <PTText size='sm' weight='400' className={`${styles.title} ${styles.caps} ${styles.price}`}>Tu declaración de renta en 2 días o 2 horas, CON ACOMPAÑAMIENTO POR CHAT O VIDEOLLAMADA</PTText>
         </div>

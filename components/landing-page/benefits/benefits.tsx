@@ -13,6 +13,7 @@ import personasIcon from '../../../public/benefits/personas.png';
 import impuestosIcon from '../../../public/benefits/optimizar.png';
 import precioIcon from '../../../public/benefits/precios.png';
 import PTText from '../../text/pt-text';
+import LineDivider from '../../line-divider/line-divider';
 
 const beneficiosDeclaracionRenta = [
   { id: 1, img: declaracionIcon, title: 'Rápido', description: 'Si te cogió el día, elaboramos tu declaración de renta hasta en 2 horas a partir de que cargues tus documentos. No vuelvas a pagar sanciones por presentar tu declaración tarde.' },
@@ -33,9 +34,9 @@ export default function Benefits() {
       <div className={`${styles.section} ${styles.grade} ${styles.noPaddingTop}`}>
         <div className={`${styles.wrapper} ${styles.conoceMas}`}>
           <div className={styles.promesaDeServicio}>
-            <div className={styles.bigDivider}></div>
+            <LineDivider />
             <PTText size='xl' weight='700' className={styles.heading}>Más beneficios de elaborar tu declaración de renta con Tributi</PTText>
-            <PTText size='sm' weight='400' className={`${styles.textDarkGrey} ${styles.noMargin}`}>CON TRIBUTI, TU DECLARACIÓN DE RENTA ESTÁ EN LAS MEJORES MANOS.</PTText>
+            <PTText size='sm' weight='400' className={styles.noMargin}>CON TRIBUTI, TU DECLARACIÓN DE RENTA ESTÁ EN LAS MEJORES MANOS.</PTText>
             <div className={styles.features}>
               {beneficiosDeclaracionRenta.map(element =>
                 <BenefitsComponent

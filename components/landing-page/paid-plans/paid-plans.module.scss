@@ -67,17 +67,6 @@
   text-align: center;
 }
 
-.bigDivider {
-  display: flex;
-  width: 150px;
-  height: 4px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  justify-content: center;
-  border: 0 #000;
-  background-color: var(--primary-color);
-}
-
 .headingPlans {
   font-family: var(--font-family);
   color: var(--ternary-color);

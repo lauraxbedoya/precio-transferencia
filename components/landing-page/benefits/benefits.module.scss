@@ -51,26 +51,15 @@
   align-items: center;
 }
 
-.bigDivider {
-  display: flex;
-  width: 150px;
-  height: 4px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  justify-content: center;
-  border: 0 var(--main-black-color);
-  background-color: var(--primary-color);
-}
-
 .heading {
   font-family: var(--font-family);
-  color: var(--secondary-color);
+  color: var(--secondary-color) !important;
   margin-bottom: 15px;
 }
 
 .noMargin {
   font-family: var(--font-family);
-  color: var(--ternary-color);
+  color: var(--ternary-color) !important;
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 40px;

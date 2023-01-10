@@ -1,4 +1,5 @@
 import PTButton from '../../button/pt-button';
+import LineDivider from '../../line-divider/line-divider';
 import PTText from '../../text/pt-text';
 import FrequentlyQuestionsComponent from './component/frequently-questions-component';
 import styles from './frequently-questions.module.scss';
@@ -17,7 +18,7 @@ export default function FrequentlyQuestions() {
     <div className={`${styles.section} ${styles.backgroundWhite}`}>
       <div className={styles.wrapper}>
         <div className={styles.sectionIntro}>
-          <div className={styles.bigDivider}></div>
+          <LineDivider />
           <PTText size='xl' weight='700' className={styles.sectionHeading}>Preguntas Frecuentes</PTText>
           <PTText size='sm' weight='400' className={`${styles.textDarkGrey} ${styles.noMargin}`}>
             ESTAS SON ALGUNAS DE LAS PREGUNTAS MÁS FRECUENTES.
