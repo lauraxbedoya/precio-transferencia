@@ -1,0 +1,41 @@
+.feature {
+  display: flex;
+  width: 33.33%;
+  padding: 16px 25px 32px 15px;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.iconLeft {
+  width: 70px;
+  height: 70px;
+  margin-right: 22px;
+  border-radius: 10px;
+}
+
+.image {
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+  max-height: 100%;
+}
+
+.featureInfoRight {
+  flex: 1;
+  display: grid;
+}
+
+.headingLeft {
+  font-family: var(--font-family);
+  margin-top: 0px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.textGrey {
+  margin-bottom: 10px;
+  color: #7a8292;
+  line-height: 20px;
+  margin-top: 0;
+  text-align: left;
+}

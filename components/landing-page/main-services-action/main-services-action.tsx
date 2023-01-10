@@ -1,5 +1,5 @@
 import styles from './main-services-action.module.scss';
-import curvesBackground from '../../../public/finanzas-personales-impuestos-banner.png';
+import curvesBackground from '../../../public/curves-image.png';
 import Image from 'next/image';
 import ServicesActionComponent from './component/services-action-component';
 import PTText from '../../text/pt-text';

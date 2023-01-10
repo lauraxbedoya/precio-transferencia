@@ -1,0 +1,84 @@
+.dividerCurves {
+  width: 100%;
+  height: 100px;
+  margin-top: 0;
+  background-position: 50% 50%;
+  -webkit-transform: translate3d(0,0,200px);
+  transform: translate3d(0,0,200px);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+  top: -75px;
+}
+
+.section {
+  margin-top: -2px;
+  padding: 100px 40px 10px;
+}
+
+.grade {
+  background-color: var(--page-background);
+}
+
+.noPaddingTop {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--page-background);
+}
+
+.wrapper {
+  z-index: auto;
+  width: 100%;
+  max-width: 1220px;
+  margin: 20px auto;
+  padding-bottom: 0;
+}
+
+.conoceMas {
+  margin-top: -100px;
+}
+
+.promesaDeServicio {
+  display: flex;
+  max-width: 100%;
+  margin-bottom: 50px;
+  padding-right: 15px;
+  padding-left: 15px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bigDivider {
+  display: flex;
+  width: 150px;
+  height: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+  border: 0 var(--main-black-color);
+  background-color: var(--primary-color);
+}
+
+.heading {
+  font-family: var(--font-family);
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+}
+
+.noMargin {
+  font-family: var(--font-family);
+  color: var(--ternary-color);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.features {
+  display: flex;
+  width: 105%;
+  margin-bottom: -32px;
+  flex-wrap: wrap;
+}

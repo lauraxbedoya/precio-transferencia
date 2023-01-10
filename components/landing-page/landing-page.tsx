@@ -1,3 +1,4 @@
+import Benefits from "./benefits/benefits";
 import Declaration from "./declaration/declaration";
 import FrequentlyQuestions from "./frequently-questions/frequently-questions";
 import MainBanner from "./main-banner/main-banner";
@@ -12,6 +13,7 @@ export default function LandingPage() {
       <PaidPlans />
       <Declaration />
       <FrequentlyQuestions />
+      <Benefits />
     </div>
   )
 }
