@@ -3,8 +3,18 @@ import curvesBackground from '../../../public/curves-image.png';
 import Image from 'next/image';
 import ServicesActionComponent from './component/services-action-component';
 import PTText from '../../text/pt-text';
+import { useRouter } from 'next/router';
 
 export default function MainServicesAction() {
+
+  const router = useRouter();
+
+  const handleShouldDeclare = () => {
+    router.push('/obligados-declarar-renta-2023');
+  };
+
+  const handleDateDeclare = () => { };
+
   return (
     <>
       <Image src={curvesBackground} className={styles.imageCurves} />
@@ -16,6 +26,7 @@ export default function MainServicesAction() {
             titleBox="Averigua si estás obligado a declarar en 2023"
             textBox="Contesta estas preguntas y te ayudamos a determinar si estás obligado a presentar tu declaración ante la DIAN de acuerdo los topes vigentes en 2022"
             textButton="¿Debo declarar renta en 2023?"
+            onClick={handleShouldDeclare}
           />
 
           <ServicesActionComponent
@@ -23,6 +34,7 @@ export default function MainServicesAction() {
             textBox="Si tienes que declarar renta, te decimos tu fecha límite para hacerlo en 2022 de acuerdo al número de tu cédula.
             ¡Evita sanciones!"
             textButton="Fechas para declarar renta en el 2023"
+            onClick={handleDateDeclare}
           />
         </div>
 
