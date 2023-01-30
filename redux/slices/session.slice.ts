@@ -19,7 +19,9 @@ export const sessionSlice = createSlice({
   name: 'session',
   initialState,
   reducers: {
-
+    clearSession: (state) => {
+      state = initialState
+    }
   },
   extraReducers(builder) {
     builder.addCase(signInUser.rejected, (state, { payload }) => {
@@ -40,4 +42,5 @@ export const sessionSlice = createSlice({
   },
 })
 
+export const { clearSession } = sessionSlice.actions;
 export default sessionSlice.reducer

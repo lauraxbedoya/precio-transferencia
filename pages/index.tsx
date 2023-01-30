@@ -1,10 +1,19 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import LandingPage from '../components/landing-page/landing-page'
+import { useAppSelector } from '../redux/store';
+import { useEffect } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const { user } = useAppSelector((state) => state.session);
+
+  useEffect(() => {
+    console.log({ user });
+
+  }, []);
 
   return (
     <>

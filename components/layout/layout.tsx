@@ -6,83 +6,32 @@ import { Menubar } from 'primereact/menubar';
 import PTButton from '../button/pt-button';
 
 import styles from './layout.module.scss';
-
+import useLoggedUser from '../../hooks/use-logged-user';
+import menuItems from './menu-items';
 
 interface Props {
   children: JSX.Element;
-  onLogout: () => void;
 }
 
-const items = [
-  {
-    label: 'Declaración de renta',
-    items: [
-      { label: '¿Debo declarar renta en el 2022?' },
-      { label: 'Fechas declaración de renta 2022' },
-      { label: 'Guía paso a paso' },
-    ]
-  },
-  {
-    label: 'Finanzas personales',
-    items: [
-      {
-        label: 'Cursos',
-        items: [
-          { label: 'Planeación financiera personal' },
-          { label: 'Compra de vivienda' }
-        ]
-      },
-      {
-        label: 'Descargables',
-        items: [
-          { label: 'Simulador planeación tributaria' },
-          { label: '¿Cuánto impuesto tendré que pagar?' }
-        ]
-      }
-    ]
-  },
-  {
-    label: 'Trabaja con nosotros',
-    items: [
-      { label: 'Vacantes abiertas' },
-      { label: 'Como contador independiente' }
-    ]
-  },
-  {
-    label: 'Ayuda',
-    items: [
-      { label: 'Preguntas frecuentes' },
-      { label: 'Base de conocimiento' }
-    ]
-  },
-]
-
-function Layout({ children, onLogout }: Props) {
+function Layout({ children }: Props) {
   const toast = useRef<Toast>(null);
+  const [isLoading, handleLogout] = useLoggedUser();
 
-
-  // const { error } = useAppSelector((state) => state.session);
-
-  // const handleDisplayError = () => {
-  //   if (toast?.current?.show) {
-  //     toast?.current?.show({ severity: 'success', summary: error, detail: 'Order submitted' });
-  //   }
-  // }
-
-  // useEffect(handleDisplayError, [error]);
-
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
 
   return (
     <div className='layout-container'>
       <div className={`${styles.navigation}`}>
         <div className={styles.navImage}>
-          <Image src={logo} width={110} height={50} />
+          <Image src={logo} width={110} height={50} alt="logo" />
         </div>
         <div className={styles.navContainer}>
-          <Menubar className='nav-items' model={items} />
+          <Menubar className='nav-items' model={menuItems} />
           <PTButton
             isMain={true}
-            onClick={onLogout}
+            onClick={handleLogout}
             size="sm"
           >Cerrar Sesión
           </PTButton>

@@ -1,16 +1,21 @@
+import PTText from '../../../../components/text/pt-text';
 import styles from './input-question.module.scss';
+import { InputHTMLAttributes } from 'react';
 
-export interface inputQuestionProps {
+export interface InputQuestionProps extends InputHTMLAttributes<HTMLInputElement> {
   textHeader: string;
-  placeholder: string;
 }
 
-export default function InputQuestion({ textHeader, placeholder }: inputQuestionProps) {
+export default function InputQuestion({
+  textHeader,
+  ...props
+}: InputQuestionProps) {
+
   return (
     <>
       <div className={`${styles.formColumn} ${styles.wCol} ${styles.wCol4}`}>
-        <h3 className={styles.textHeader}>{textHeader}</h3>
-        <input placeholder={placeholder} className={`${styles.formTextField} ${styles.wInput}`} />
+        <PTText size='md' weight='400' className={styles.textHeader}>{textHeader}</PTText>
+        <input {...props} className={`${styles.formTextField} ${styles.wInput}`} />
       </div>
     </>
   )
