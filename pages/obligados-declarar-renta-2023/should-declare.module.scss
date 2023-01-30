@@ -27,10 +27,7 @@
 }
 
 .conditionsToPayTaxWrapper {
-  position: relative;
   z-index: 1;
-  display: flex;
-  overflow: visible;
   width: 100%;
   margin-top: 140px;
   margin-right: auto;
@@ -46,7 +43,7 @@
   position: relative;
   display: flex;
   overflow: visible;
-  width: 680px;
+  width: 750px;
   margin-right: auto;
   margin-bottom: 40px;
   margin-left: auto;
@@ -72,7 +69,7 @@
 .clockImage {
   position: absolute;
   left: -67px;
-  top: 44px;
+  top: 30px;
   right: auto;
   bottom: auto;
 }
@@ -82,7 +79,6 @@
   margin-bottom: 0;
   margin-left: 20px;
   padding-top: 0;
-  font-size: 22px;
   line-height: 28px;
 }
 
@@ -127,7 +123,6 @@
 .checkboxLabel {
   display: inline-block;
   cursor: pointer;
-  font-weight: 400;
   margin-bottom: 0;
   margin-left: 5px;
 }
@@ -140,9 +135,3 @@
   flex-direction: column;
   align-items: center;
 }
-
-
-
-.sectionInfo {}
-
-.wfSection {}

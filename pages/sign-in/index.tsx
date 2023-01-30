@@ -4,7 +4,7 @@ import { signInUser } from "../../redux/actions/session.action";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 
 export default function SignIn() {
-  const [values, setValues] = useState({ email: 'aleydapenax@gmail.com', password: 'aleyda' });
+  const [values, setValues] = useState({ email: 'sasha.maria@gmail.com', password: 'sasha' });
   const [isUserLogged, setIsUserLogged] = useState(true);
   const router = useRouter();
   const dispatch = useAppDispatch();
