@@ -4,7 +4,7 @@ import logo from '../../public/logopagina.png';
 import clockImage from '../../public/clock-image.png';
 import InputQuestion from './components/input/input-question';
 import PTText from '../../components/text/pt-text';
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import FormQuestionShouldDeclare from './components/form/form-question-should-declare';
 import { api } from '../../helpers/api.helper';
 import { Answer, Question } from '../../interfaces/should-declare-question.interface';
@@ -18,7 +18,8 @@ function ObligadosDeclararRenta2023() {
   const [questionsToShow, setQuestionsToShow] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<Answer[]>([]);
   const { user } = useAppSelector((state) => state.session);
-  const [formUser, setFormUser] = useState<User | null>(user);
+  const [formUser, setFormUser] = useState<Partial<User> | null>(user);
+
 
   const getAllQuestions = async () => {
     try {
@@ -28,7 +29,6 @@ function ObligadosDeclararRenta2023() {
     } catch (error) {
       console.log(error)
     }
-    setFormUser(user);
   }
 
   const handleAnswer = async (questionId: number, answer: string) => {
@@ -85,14 +85,32 @@ function ObligadosDeclararRenta2023() {
   }
 
   const handleSubmitShouldDeclare = async () => {
-    // try {
-    //   const resp = await api.post<>('create-submission');
-    //   if(resp) {
-    //     alert('Enviado correctamente')
-    //   }
-    // } catch (error) {
-    //   console.log(error)
-    // }
+    const answer = answers.find((ans) => ans.answer);
+    if (!answer) {
+      alert('Debe ingresar al menos una respuesta')
+    } else {
+      if (!formUser?.email) {
+        alert('Debe ingresar un correo electrónico')
+      } else {
+        try {
+          const resp = await api.post<Answer>('should-declare/create-submission', { user: formUser, answers });
+          if (resp) {
+            alert('Enviado correctamente')
+          }
+        } catch (error) {
+          console.log(error)
+        }
+      }
+    }
+  }
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFormUser(
+      {
+        ...formUser,
+        [e.target.name as keyof (User)]: e.target.value,
+      } as User
+    )
   }
 
   useEffect(() => {
@@ -100,8 +118,12 @@ function ObligadosDeclararRenta2023() {
   }, []);
 
   useEffect(() => {
-    setFormUser(user);
+    setFormUser({ name: user?.name, lastName: user?.lastName, email: user?.email });
   }, [user])
+
+  useEffect(() => {
+    console.log(formUser);
+  }, [formUser])
 
 
   return (
@@ -125,9 +147,9 @@ function ObligadosDeclararRenta2023() {
             ))}
             <div className={styles.questionsDivider}></div>
             <div className={styles.formBlock}>
-              <InputQuestion value={formUser?.name} textHeader='Nombre' placeholder='Ingresa tu nombre' />
-              <InputQuestion value={formUser?.lastName} textHeader='Apellido' placeholder='Ingresa tu apellido' />
-              <InputQuestion value={formUser?.email} textHeader='Correo Electrónico' placeholder='Ingresa tu email' />
+              <InputQuestion value={formUser?.name} name="name" onChange={handleInputChange} textHeader='Nombre' placeholder='Ingresa tu nombre' />
+              <InputQuestion value={formUser?.lastName} name="lastName" onChange={handleInputChange} textHeader='Apellido' placeholder='Ingresa tu apellido' />
+              <InputQuestion value={formUser?.email} name="email" onChange={handleInputChange} textHeader='Correo Electrónico' placeholder='Ingresa tu email' />
             </div>
           </div>
 
