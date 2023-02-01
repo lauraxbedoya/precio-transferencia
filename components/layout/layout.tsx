@@ -8,6 +8,8 @@ import PTButton from '../button/pt-button';
 import styles from './layout.module.scss';
 import useLoggedUser from '../../hooks/use-logged-user';
 import menuItems from './menu-items';
+import { useAppSelector } from '../../redux/store';
+import Link from 'next/link';
 
 interface Props {
   children: JSX.Element;
@@ -16,6 +18,7 @@ interface Props {
 function Layout({ children }: Props) {
   const toast = useRef<Toast>(null);
   const [isLoading, handleLogout] = useLoggedUser();
+  const { user } = useAppSelector((state) => state.session);
 
   if (isLoading) {
     return <div>Loading...</div>
@@ -25,7 +28,9 @@ function Layout({ children }: Props) {
     <div className='layout-container'>
       <div className={`${styles.navigation}`}>
         <div className={styles.navImage}>
-          <Image src={logo} width={110} height={50} alt="logo" />
+          <Link href='/'>
+            <Image src={logo} width={110} height={50} alt="logo" />
+          </Link>
         </div>
         <div className={styles.navContainer}>
           <Menubar className='nav-items' model={menuItems} />
@@ -33,7 +38,7 @@ function Layout({ children }: Props) {
             isMain={true}
             onClick={handleLogout}
             size="sm"
-          >Cerrar Sesión
+          >{user ? 'Cerrar Sesión' : 'Iniciar Sesión'}
           </PTButton>
         </div>
 

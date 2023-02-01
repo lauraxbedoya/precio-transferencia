@@ -11,7 +11,7 @@ function Home() {
       <div>hooooooooooooome</div>
 
       {error && <h3>{error}</h3>}
-      {user && <pre>{user.lastName}</pre>}
+      {user && <pre>{user.email}</pre>}
     </>)
 }
 

@@ -11,12 +11,12 @@ const useLoggedUser = (): [boolean, () => void] => {
 
   const checkIsUserLogged = () => {
 
-    const token = localStorage.getItem('tkn');
-    if (!token) {
-      router.push(`/sign-in`);
-    } else {
-      dispatch(findLoggedUser());
-    }
+    // const token = localStorage.getItem('tkn');
+    // if (!token) {
+    //   router.push(`/sign-in`);
+    // } else {
+    dispatch(findLoggedUser());
+    // }
     setIsLoading(false);
   }
 

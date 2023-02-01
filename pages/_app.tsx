@@ -1,8 +1,6 @@
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
-import { store, useAppSelector } from '../redux/store'
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
+import { store } from '../redux/store'
 
 import "primereact/resources/themes/mdc-light-deeppurple/theme.css";
 import "primereact/resources/primereact.min.css";
