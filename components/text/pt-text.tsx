@@ -4,7 +4,7 @@ import styles from './text.module.scss';
 export interface PTTextProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'children'> {
   children: string;
   weight: '400' | '500' | '600' | '700';
-  size: 'xxxl' | 'xxl' | 'xl' | 'md' | 'sm' | 'xs' | 'xxs';
+  size: 'xxxl' | 'xxl' | 'xl' | 'md' | 'sm' | 'xs' | 'xxs' | 'xxxs';
 }
 
 export default function PTText({
@@ -40,6 +40,9 @@ export default function PTText({
         break;
       case 'xxs':
         styleClass = styles.textXxs
+        break;
+      case 'xxxs':
+        styleClass = styles.textXxxs
       default:
         break
     }

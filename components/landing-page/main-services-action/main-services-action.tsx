@@ -13,7 +13,9 @@ export default function MainServicesAction() {
     router.push('/obligados-declarar-renta-2023');
   };
 
-  const handleDateDeclare = () => { };
+  const handleDateDeclare = () => {
+    router.push('/fechas-declaracion-renta');
+  };
 
   return (
     <>

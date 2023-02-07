@@ -2,8 +2,8 @@ const items = [
   {
     label: 'Declaración de renta',
     items: [
-      { label: '¿Debo declarar renta en el 2022?' },
-      { label: 'Fechas declaración de renta 2022' },
+      { label: '¿Debo declarar renta en el 2023?' },
+      { label: 'Fechas declaración de renta 2023' },
       { label: 'Guía paso a paso' },
     ]
   },

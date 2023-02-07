@@ -31,7 +31,7 @@ export default function SignIn() {
     } else {
       const { type } = await dispatch(signInUser(values));
       if (type === "session/signInUser/fulfilled") {
-        router.push('/home');
+        router.push('/');
         alert("Logado correctamente");
       }
     }
