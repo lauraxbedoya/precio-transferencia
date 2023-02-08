@@ -11,7 +11,7 @@ export default function FechasDeclaracionRenta() {
   const [termsConditions, setTermsConditions] = useState(true);
   const { user } = useAppSelector((state) => state.session);
   const [formUser, setFormUser] = useState<Partial<User> | null>(user);
-  const [nit, setNit] = useState(undefined);
+  const [lastNitDigit, setLastNitDigit] = useState<number | undefined>();
 
   useEffect(() => {
     setFormUser({ name: user?.name, lastName: user?.lastName, email: user?.email });
@@ -22,25 +22,30 @@ export default function FechasDeclaracionRenta() {
   }, [formUser])
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setFormUser(
-      {
-        ...formUser,
-        [e.target.name as keyof (User)]: e.target.value,
-      } as User
-    )
+    if (e.target.name === 'lastNitDigit') {
+      if (+e.target.value >= 0 && +e.target.value < 10) {
+        setLastNitDigit(+e.target.value)
+      }
+    } else {
+      setFormUser(
+        {
+          ...formUser,
+          [e.target.name as keyof (User)]: e.target.value,
+        } as User
+      )
+    }
   }
 
-  //si usuario existe o no
-  //crear el registro de la base de datos con esa info con el nit y lo demas
   //enviar email al admin
   //con sultar en la tabla de statment la fecha de expiracion
   //retornar esto anterior
 
   const handleSubmission = async () => {
-    if (!formUser?.name || !formUser.lastName || !formUser.email || !nit) {
-      alert('Todos los campos son obligatorios')
+    if (!formUser?.name || !formUser.lastName || !formUser.email || !lastNitDigit) {
+      alert('Todos los campos son requeridos')
     } else {
-      const resp = await api.post('fechas-declaracion-renta', { user: formUser, nit })
+      const resp = await api.post('fechas-declaracion-renta', { user: formUser, lastNITDigit: lastNitDigit });
+      console.log(resp);
     }
   }
 
@@ -54,9 +59,11 @@ export default function FechasDeclaracionRenta() {
             // dígitos de tu RUT'
             placeholder='Ingresa el último número del NIT'
             type="number"
-            name="nit"
+            min={0}
+            max={9}
+            name="lastNitDigit"
             onChange={handleInputChange}
-            value={nit}
+            value={lastNitDigit}
           />
           <FormDateDeclare
             textHeader='Nombre *'
