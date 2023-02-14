@@ -1,10 +1,11 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { signInGoogleUser, signInUser } from "../../redux/actions/session.action";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { GoogleAuthProvider, signInWithPopup, UserCredential, User } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup, UserCredential } from 'firebase/auth';
 import { auth } from '../../utils/firebase';
 import { useAuthState } from "react-firebase-hooks/auth";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function SignIn() {
   const [values, setValues] = useState({ email: 'sasha.maria@gmail.com', password: 'sasha' });
@@ -14,6 +15,7 @@ export default function SignIn() {
   const [isRedirecting, setIsRedirecting] = useState(false);
   const { user, error, loading } = useAppSelector((state) => state.session);
   const [gUser, gLoading] = useAuthState(auth);
+  const recaptchaRef = React.createRef<ReCAPTCHA>()
 
 
   const checkIsUserLogged = () => {
@@ -35,10 +37,15 @@ export default function SignIn() {
     if (!values.email || !values.password) {
       alert("Todos los campos son requeridos")
     } else {
-      const { type } = await dispatch(signInUser(values));
-      if (type === "session/signInUser/fulfilled") {
-        router.push('/');
-        alert("Logado correctamente");
+      const recaptchaValue = recaptchaRef.current?.getValue();
+      if (recaptchaValue) {
+        const { type } = await dispatch(signInUser(values));
+        if (type === "session/signInUser/fulfilled") {
+          router.push('/');
+          alert("Logado correctamente");
+        }
+      } else {
+        alert('falta no soy un robot jaja')
       }
     }
   }
@@ -70,6 +77,8 @@ export default function SignIn() {
     return <h1>Loading...</h1>
   }
 
+  const handlerecaptcha = (value: any) => { console.log("Captcha value:", value); }
+
   return (
     <div >
       <h1>Sign in</h1>
@@ -86,6 +95,11 @@ export default function SignIn() {
         value={values.password}
         onChange={handleInputChange}
         placeholder="Password"
+      />
+      <ReCAPTCHA
+        ref={recaptchaRef}
+        sitekey="6Lcj9H8kAAAAAO1EXHjGueHubA1yVhvxYpW1gs2t"
+        onChange={handlerecaptcha}
       />
       <div>
         <button
