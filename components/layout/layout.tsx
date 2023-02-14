@@ -20,10 +20,6 @@ function Layout({ children }: Props) {
   const [isLoading, handleLogout] = useLoggedUser();
   const { user } = useAppSelector((state) => state.session);
 
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
-
   return (
     <div className='layout-container'>
       <div className={`${styles.navigation}`}>
@@ -34,12 +30,20 @@ function Layout({ children }: Props) {
         </div>
         <div className={styles.navContainer}>
           <Menubar className='nav-items' model={menuItems} />
-          <PTButton
-            isMain={true}
-            onClick={handleLogout}
-            size="sm"
-          >{user ? 'Cerrar Sesión' : 'Iniciar Sesión'}
-          </PTButton>
+          <span>{user?.name}</span>
+          {!user ?
+            <Link href='/sign-in'>
+              <PTButton
+                isMain={true}
+                size="sm"
+              >Iniciar Sesión
+              </PTButton> </Link> :
+            <PTButton
+              isMain={true}
+              onClick={handleLogout}
+              size="sm"
+            >Cerrar Sesión</PTButton>
+          }
         </div>
 
         <Toast ref={toast} />

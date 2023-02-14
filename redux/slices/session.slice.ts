@@ -20,7 +20,10 @@ export const sessionSlice = createSlice({
   initialState,
   reducers: {
     clearSession: (state) => {
-      state = initialState
+      state.user = initialState.user;
+      state.loading = initialState.loading;
+      state.error = initialState.error;
+      localStorage.removeItem('tkn');
     }
   },
   extraReducers(builder) {

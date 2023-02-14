@@ -43,7 +43,7 @@ export default function FechasDeclaracionRenta() {
     if (!formUser?.name || !formUser.lastName || !formUser.email || !lastNitDigit) {
       alert('Todos los campos son requeridos')
     } else {
-      const resp = await api.post('fechas-declaracion-renta', { user: formUser, lastNITDigit: lastNitDigit });
+      const resp = await api.post('fechas-declaracion-renta', { user: { ...formUser, createdFrom: 'date_declare' }, lastNITDigit: lastNitDigit });
       setStatemenMaxDate(resp.data)
     }
   }

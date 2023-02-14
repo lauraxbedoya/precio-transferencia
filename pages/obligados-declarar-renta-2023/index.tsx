@@ -93,7 +93,7 @@ function ObligadosDeclararRenta2023() {
         alert('Debe ingresar un correo electrónico')
       } else {
         try {
-          const resp = await api.post<Answer>('should-declare/create-submission', { user: formUser, answers });
+          const resp = await api.post<Answer>('should-declare/create-submission', { user: { ...formUser, createdFrom: 'should_declare' }, answers });
           if (resp) {
             alert('Enviado correctamente')
           }

@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import { findLoggedUser } from "../redux/actions/session.action";
 import { clearSession } from "../redux/slices/session.slice";
 import { useAppDispatch } from "../redux/store";
+import { auth } from "../utils/firebase";
 
 const useLoggedUser = (): [boolean, () => void] => {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   const dispatch = useAppDispatch();
 
@@ -23,6 +24,7 @@ const useLoggedUser = (): [boolean, () => void] => {
   const handleLogout = () => {
     localStorage.removeItem('tkn');
     dispatch(clearSession());
+    auth.signOut();
 
     router.push(`/sign-in`);
   }
