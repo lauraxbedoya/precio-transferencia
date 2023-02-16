@@ -15,7 +15,7 @@ export default function SignIn() {
   const [isRedirecting, setIsRedirecting] = useState(false);
   const { user, error, loading } = useAppSelector((state) => state.session);
   const [gUser, gLoading] = useAuthState(auth);
-  const recaptchaRef = React.createRef<ReCAPTCHA>()
+  const recaptchaRef = React.createRef<ReCAPTCHA>();
 
 
   const checkIsUserLogged = () => {
@@ -45,7 +45,7 @@ export default function SignIn() {
           alert("Logado correctamente");
         }
       } else {
-        alert('falta no soy un robot jaja')
+        alert('falta no soy un robot')
       }
     }
   }
