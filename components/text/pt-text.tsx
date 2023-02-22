@@ -70,7 +70,7 @@ export default function PTText({
   }
 
   useEffect(setWeightStyles, [weight]);
-  useEffect(setSizeStyles, [size]);
+  (setSizeStyles, [size]);
 
   return (
     <span

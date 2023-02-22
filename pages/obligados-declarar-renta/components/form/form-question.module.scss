@@ -1,0 +1,48 @@
+.questionBlock {
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.mainQuestionTitle {
+  margin-bottom: 8px;
+  line-height: 20px;
+  text-align: left;
+}
+
+.answerBlock {
+  display: flex;
+}
+
+.answerIcon {
+  margin-top: 14px;
+  margin-bottom: auto;
+}
+
+.answerSelector {
+  display: flex;
+  margin-left: 10px;
+  flex-direction: column;
+}
+
+.questionDescription {
+  text-align: left;
+  font-size: 15px !important;
+}
+
+.radio {
+  text-align: left;
+}
+
+.wRadio {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.wFormLabel{
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 0;
+}
