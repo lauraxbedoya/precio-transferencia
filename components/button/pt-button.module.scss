@@ -1,5 +1,5 @@
 .mainButton {
-  color: var(--primary-grey-color);
+  color: var(--grey-color);
   background: var(--ternary-color);
   color: var(--white-color);
   border: 0 solid transparent;
@@ -12,18 +12,20 @@
 
 .mainButton:hover {
   background: var(--primary-color) !important;
-  color: var(--ternary-grey-color) !important;
+  color: var(--black-color) !important;
 }
 
 
 .buttonSecondary {
   background: var(--primary-color);
-  color: var(--primary-grey-color);
+  color: var(--black-color);
+  box-shadow: 1px 0 10px 0 rgb(89 98 115 / 60%);
 }
 
 .buttonSecondary:hover {
   background: var(--white-color) !important;
-  color: var(--secondary-text-color);
+  color: var(--black-color) !important;
+  box-shadow: 1px 0 10px 0 rgb(89 98 115 / 60%);
 }
 
 /* sizes */

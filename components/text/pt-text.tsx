@@ -1,8 +1,8 @@
-import { HTMLAttributes, useEffect, useState } from "react";
+import { HTMLAttributes, ReactNode, useEffect, useState } from "react";
 import styles from './text.module.scss';
 
 export interface PTTextProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'children'> {
-  children: string;
+  children: string | ReactNode;
   weight: '400' | '500' | '600' | '700';
   size: 'xxxl' | 'xxl' | 'xl' | 'md' | 'sm' | 'xs' | 'xxs' | 'xxxs';
 }
@@ -70,7 +70,7 @@ export default function PTText({
   }
 
   useEffect(setWeightStyles, [weight]);
-  (setSizeStyles, [size]);
+  useEffect(setSizeStyles, [size]);
 
   return (
     <span

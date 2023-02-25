@@ -6,13 +6,24 @@
   box-shadow: 1px 0 10px 0 rgb(89 98 115 / 20%);
   margin-bottom: 0;
   width: 100%;
+  flex-direction: row;
+  padding-right: 35px;
 }
 
 .navImage {
-  align-self: center;
+  flex: 1 1;
+  padding: 35px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
 }
 
 .navContainer {
   display: flex;
   align-items: center;
+}
+
+.imageLogo {
+  width: 15% !important;
+  height: auto !important;
 }

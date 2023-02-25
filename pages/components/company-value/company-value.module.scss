@@ -1,0 +1,44 @@
+.section {
+  position: relative;
+  display: flex;
+  overflow: visible;
+  width: 100%;
+  margin-top: -2px;
+  padding: 100px 40px 10px;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.componentDeclaration {
+  padding-top: 30px;
+  padding-bottom: 10px;
+  background-color: var(--white-color);
+  background-image: linear-gradient(90deg, var(--secondary-color), var(--ternary-color));
+}
+
+.sectionIntro {
+  display: flex;
+  margin-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.heading {
+  margin-bottom: 25px;
+  font-family: var(--font-family);
+  color: var(--white-color);
+  line-height: 1.1;
+}
+
+.column4 {
+  display: flex;
+  margin-top: 20px;
+  max-width: 100%;
+}

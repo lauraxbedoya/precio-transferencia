@@ -1,6 +1,6 @@
 import { Toast } from 'primereact/toast';
 import { useRef } from 'react';
-import logo from '../../public/logopagina.png';
+import logo from '../../public/logo/logo.png';
 import Image from 'next/image';
 import { Menubar } from 'primereact/menubar';
 import PTButton from '../button/pt-button';
@@ -25,25 +25,31 @@ function Layout({ children }: Props) {
       <div className={`${styles.navigation}`}>
         <div className={styles.navImage}>
           <Link href='/'>
-            <Image src={logo} width={110} height={50} alt="logo" />
+            <Image src={logo} height={65} alt="logo" />
           </Link>
         </div>
         <div className={styles.navContainer}>
           <Menubar className='nav-items' model={menuItems} />
           <span>{user?.name}</span>
-          {!user ?
+          {/* {!user ?
             <Link href='/sign-in'>
               <PTButton
                 isMain={true}
                 size="sm"
-              >Iniciar Sesión
-              </PTButton> </Link> :
+              >Ingresar o Registrarse
+              </PTButton>
+            </Link> :
             <PTButton
               isMain={true}
               onClick={handleLogout}
               size="sm"
             >Cerrar Sesión</PTButton>
-          }
+          } */}
+          <PTButton
+            isMain={true}
+            size="sm"
+          >Ingresar o Registrarse
+          </PTButton>
         </div>
 
         <Toast ref={toast} />

@@ -1,43 +1,24 @@
 const items = [
   {
-    label: 'Declaración de renta',
+    label: 'Servicios de precios de transferencia',
     items: [
-      { label: '¿Debo declarar renta en el 2023?' },
-      { label: 'Fechas declaración de renta 2023' },
-      { label: 'Guía paso a paso' },
+      { label: 'Determinar sus obligaciones de precios de trasnferencia' },
+      { label: 'Elaborar la declaración de precios de transferencia' },
+      { label: 'Asistencia en la presentación de tus obligaciones de precios de trasnferencia' },
     ]
   },
   {
-    label: 'Finanzas personales',
+    label: 'Actualidad tributaria',
     items: [
-      {
-        label: 'Cursos',
-        items: [
-          { label: 'Planeación financiera personal' },
-          { label: 'Compra de vivienda' }
-        ]
-      },
-      {
-        label: 'Descargables',
-        items: [
-          { label: 'Simulador planeación tributaria' },
-          { label: '¿Cuánto impuesto tendré que pagar?' }
-        ]
-      }
-    ]
-  },
-  {
-    label: 'Trabaja con nosotros',
-    items: [
-      { label: 'Vacantes abiertas' },
-      { label: 'Como contador independiente' }
+      { label: 'Blog tributario y de precios de trasnferencia' },
     ]
   },
   {
     label: 'Ayuda',
     items: [
       { label: 'Preguntas frecuentes' },
-      { label: 'Base de conocimiento' }
+      { label: 'Normatividad de precios de trasnferencia' },
+      { label: 'Chat PT PRO, acá nos puedes contar en lo que podamos ayudarte' }
     ]
   },
 ]
