@@ -35,7 +35,7 @@ export default function PTInput({
   return (
     <InputText
       {...props}
-      className={`${styles.mainStyleInput} p-float-label ${customClass}`}
+      className={`${styles.mainStyleInput} p-float-label ${customClass} ${props.className}`}
     />
   )
 }

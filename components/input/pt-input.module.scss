@@ -7,8 +7,9 @@
 }
 
 .mainStyleInput:hover {
-  border: 2px solid var(--ternary-color) !important;
+  border: 1px solid var(--primary-color);
   transition: all .3s !important;
+  box-shadow: var(--primary-color) 0px 0px 0px 1px;
 }
 
 .inputXl {

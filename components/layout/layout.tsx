@@ -31,7 +31,7 @@ function Layout({ children }: Props) {
         <div className={styles.navContainer}>
           <Menubar className='nav-items' model={menuItems} />
           <span>{user?.name}</span>
-          {/* {!user ?
+          {!user ?
             <Link href='/sign-in'>
               <PTButton
                 isMain={true}
@@ -44,12 +44,7 @@ function Layout({ children }: Props) {
               onClick={handleLogout}
               size="sm"
             >Cerrar Sesión</PTButton>
-          } */}
-          <PTButton
-            isMain={true}
-            size="sm"
-          >Ingresar o Registrarse
-          </PTButton>
+          }
         </div>
 
         <Toast ref={toast} />
