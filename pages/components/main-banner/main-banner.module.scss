@@ -15,7 +15,6 @@
 
 .heading {
   margin-bottom: 20px;
-  font-family: var(--font-family);
   color: var(--white-color);
   line-height: 1.1;
   text-align: center;
@@ -32,7 +31,6 @@
 
 .textBody {
   margin-bottom: 0;
-  font-family: var(--font-family);
   color: var(--white-color);
   line-height: 1.2;
   text-align: left;
@@ -48,12 +46,11 @@
 .containerCurves {
   display: flex;
   align-items: end;
-  padding-top: 10%;
 }
 
 .imageCurves {
   position: relative;
-  height: 100px;
+  height: 150px;
   width: 100%;
   grid-auto-columns: 1fr;
   grid-column-gap: 16px;

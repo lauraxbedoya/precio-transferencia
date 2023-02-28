@@ -18,19 +18,19 @@ export default function MainServicesAction() {
 
   return (
     <div className={styles.sectionHome}>
-      <PTText size='xl' weight='700' className={styles.heading}>¿Cuándo y qué debo presentar en materia de precios de transferencia?</PTText>
+      <PTText asTag='h2' size='xxxl' weight='700' className={styles.heading}>¿Cuándo y qué debo presentar en materia de Precios de Transferencia?</PTText>
 
       <div className={styles.featureCards}>
         <ServicesActionComponent
           titleBox="Verifica si tu entidad está sujeta al régimen de precios de transferencia"
           textButton="¡Verifica!"
-        // onClick={handleShouldDeclare}
+          onClick={handleShouldDeclare}
         />
 
         <ServicesActionComponent
-          titleBox="Revisa los plazos en los cuales de deben presentar las obligaciones de precios de transferencia de tu entidad"
+          titleBox="Revisa los plazos en los cuales se deben presentar las obligaciones de precios de transferencia de tu entidad"
           textButton="¡Revisa!"
-        // onClick={handleDateDeclare}
+          onClick={handleDateDeclare}
         />
       </div>
       <LineDivider />

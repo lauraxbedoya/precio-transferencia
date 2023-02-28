@@ -5,6 +5,7 @@ import calculadoraImg from '../../../public/calculadora-home.png';
 import marranitoImg from '../../../public/marranito-home.png';
 import seguroImg from '../../../public/seguro-home.png';
 
+
 const companyValues = [
   {
     image: calculadoraImg,
@@ -34,7 +35,7 @@ export default function CompanyValues() {
   return (
     <div className={`${styles.componentDeclaration} ${styles.section}`}>
       <div className={styles.sectionIntro}>
-        <PTText size='xl' weight='700' className={styles.heading}>TP TRIP tu mejor opción para preparar la declaración de precios de transferencia.</PTText>
+        <PTText asTag='h2' size='xxxl' weight='700' className={styles.heading}>TP TRIP tu mejor opción para preparar la declaración de precios de transferencia.</PTText>
       </div>
       <div className={styles.column4}>
         {companyValues.map(companyValue =>

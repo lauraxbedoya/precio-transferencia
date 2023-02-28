@@ -1,43 +1,38 @@
 .mainText {
-  font-family: var(--font-family);
   text-align: center;
-  color: var(--primary-grey-color);
 }
 
 /* sizes */
 .textXxxl {
   font-size: var(--font-size-xxxl);
-  line-height: 1.1;
 }
 
 .textXxl {
   font-size: var(--font-size-xxl);
-  line-height: 1.1;
 }
 
 .textXl {
   font-size: var(--font-size-xl);
 }
 
+.textLg {
+  font-size: var(--font-size-lg);
+}
+
 .textMd {
   font-size: var(--font-size-md);
-  line-height: 28px;
 }
 
 .textSm {
   font-size: var(--font-size-sm);
-  line-height: 23px;
 }
 
 .textXs {
   font-size: var(--font-size-xs);
-  line-height: 20px;
-  letter-spacing: 0;
 }
 
 .textXxs {
   font-size: var(--font-size-xxs);
-  line-height: 14px;
   text-decoration: none;
 }
 

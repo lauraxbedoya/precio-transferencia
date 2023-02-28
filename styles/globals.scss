@@ -1,12 +1,53 @@
 @import './colors.scss';
 @import './theme.scss';
 
+// Champagne Limousines
+@font-face {
+  font-family: 'ChampagneLimousines';
+  src: url('../assets/fonts/champagne_limousines/Champagne & Limousines.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ChampagneLimousines';
+  src: url('../assets/fonts/champagne_limousines/Champagne & Limousines Bold.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+// Gotham Rounded
+@font-face {
+  font-family: 'GothamRounded';
+  src: url('../assets/fonts/gotham-rounded/GothamRoundedLight_21020.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GothamRounded';
+  src: url('../assets/fonts/gotham-rounded/GothamRounded-Medium.otf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GothamRounded';
+  src: url('../assets/fonts/gotham-rounded/GothamRoundedBold_21016.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
 
 body {
   margin: 0px;
-  background-color: var(--page-background);
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
+  background-color: var(--white-color);
+  font-family: 'GothamRounded';
+  font-size: var(--font-size-md);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'ChampagneLimousines';
 }
 
 .layout-container {

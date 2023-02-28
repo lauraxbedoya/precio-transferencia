@@ -4,13 +4,15 @@ import styles from './text.module.scss';
 export interface PTTextProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'children'> {
   children: string | ReactNode;
   weight: '400' | '500' | '600' | '700';
-  size: 'xxxl' | 'xxl' | 'xl' | 'md' | 'sm' | 'xs' | 'xxs' | 'xxxs';
+  size: 'xxxl' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'xxs' | 'xxxs';
+  asTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
 export default function PTText({
   children,
   weight = '400',
   size = 'md',
+  asTag,
   ...props
 }: PTTextProps) {
 
@@ -31,6 +33,9 @@ export default function PTText({
         break;
       case 'md':
         styleClass = styles.textMd
+        break;
+      case 'lg':
+        styleClass = styles.textLg
         break;
       case 'sm':
         styleClass = styles.textSm
@@ -72,11 +77,25 @@ export default function PTText({
   useEffect(setWeightStyles, [weight]);
   useEffect(setSizeStyles, [size]);
 
+  const classes = `${styles.mainText} ${customWeightClass} ${customSizeClass} ${props.className}`;
+
+
   return (
-    <span
-      {...props}
-      className={`${styles.mainText} ${customWeightClass} ${customSizeClass} ${props.className}`}
-    >{children}
-    </span>
+    <>
+      {asTag === 'h1' && <h1 className={classes}>{children}</h1>}
+      {asTag === 'h2' && <h2 className={classes}>{children}</h2>}
+      {asTag === 'h3' && <h3 className={classes}>{children}</h3>}
+      {asTag === 'h4' && <h4 className={classes}>{children}</h4>}
+      {asTag === 'h5' && <h5 className={classes}>{children}</h5>}
+      {asTag === 'h6' && <h6 className={classes}>{children}</h6>}
+
+      {!asTag &&
+        <span
+          {...props}
+          className={classes}
+        >{children}
+        </span>
+      }
+    </>
   )
 }

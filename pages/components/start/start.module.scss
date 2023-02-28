@@ -1,7 +1,7 @@
 .bigMessage {
-  padding: 48px 20px;
   justify-content: center;
   align-items: center;
+  padding-top: 10px;
 }
 
 .grade {
@@ -23,7 +23,6 @@
   padding-top: 25px;
   padding-bottom: 25px;
   transition: .2s;
-  font-family: var(--font-family);
   color: var(--ternary-color);
   font-size: 38px;
   line-height: 1.2;

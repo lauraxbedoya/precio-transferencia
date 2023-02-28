@@ -17,7 +17,7 @@ export default function Plan({ paidPlan }: PaidPlansProps) {
     <div className={styles.pricingV1Card} style={!paidPlan.isPro ? { backgroundColor: 'var(--white-color)' } : { backgroundColor: '' }}>
       <div className={styles.pricingV1Badge} style={!paidPlan.isPro ? { backgroundColor: 'var(--white-color)' } : { backgroundColor: '#7d00ff' }}></div>
       <div className={styles.upper}>
-        <PTText size='xl' weight='700' className={styles.headingBox}>{paidPlan.plan}</PTText>
+        <PTText asTag='h1' size='xl' weight='700' className={styles.headingBox}>{paidPlan.plan}</PTText>
         <div className={styles.smallDivider} style={paidPlan.isPro ? { background: 'var(--white-color)' } : { background: 'var(--primary-color)' }}></div>
 
         <div className={styles.pricingFeatures}>
@@ -25,7 +25,7 @@ export default function Plan({ paidPlan }: PaidPlansProps) {
             <ul>
               {paidPlan.planItems.map((plan) => (
                 <li key={plan}>
-                  <PTText size='xs' weight='400'>{plan}</PTText>
+                  <PTText size='sm' weight='500'>{plan}</PTText>
                 </li>
               ))}
             </ul>

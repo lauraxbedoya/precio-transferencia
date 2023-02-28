@@ -51,8 +51,8 @@ export default function Plans() {
       <div className={styles.declaracionPlansWrapper}>
         <div className={styles.sectionIntro}>
           <LineDivider />
-          <PTText size='xxl' weight='700' className={styles.headingPlans}>Planes PT-Trip para la elaboración de la declaración de Precios de Transferencia</PTText>
-          <PTText size='sm' weight='400' className={`${styles.title} ${styles.caps} ${styles.price}`}>De la mano de PR-PRO, prepara la declaración de precios de trasnferencia de manera segura y sin obstaculos.</PTText>
+          <PTText asTag='h1' size='xxxl' weight='700' className={styles.headingPlans}>Planes PT-Trip para la elaboración de la declaración de Precios de Transferencia</PTText>
+          <PTText size='sm' weight='500' className={`${styles.title} ${styles.caps} ${styles.price}`}>De la mano de PR-PRO, prepara la declaración de precios de transferencia de manera segura y sin obstáculos.</PTText>
         </div>
 
         <div className={styles.wColumns}>
@@ -72,7 +72,7 @@ export default function Plans() {
 
         <div className={styles.containerTextEnd}>
           {keyDataItems.map(item => (
-            <PTText size='xs' weight='400' className={styles.itemsSpan} key={item}>{item}</PTText>
+            <PTText size='xs' weight='500' className={styles.itemsSpan} key={item}>{item}</PTText>
           ))}
         </div>
       </div>

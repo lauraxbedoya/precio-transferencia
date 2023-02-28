@@ -39,9 +39,8 @@
 }
 
 .headingBox {
-  font-family: var(--font-family);
   color: var(--ternary-color);
-  line-height: 1;
+  margin-top: 10px;
 }
 
 .smallDivider {
@@ -74,7 +73,6 @@
 .declarationPrice {
   display: flex;
   align-items: flex-start;
-  font-family: var(--font-family);
   color: var(--ternary-color);
   font-size: 50px;
   font-weight: 500;
@@ -102,7 +100,6 @@
   display: flex;
   padding-top: 8px;
   padding-bottom: 8px;
-  font-family: var(--font-family);
   flex-direction: column;
   padding-right: 14px;
 }

@@ -5,22 +5,22 @@ import styles from './main-service-action.module.scss';
 export interface servicesActionProps {
   titleBox: string;
   textButton: string;
-  // onClick: () => any;
+  onClick: () => any;
 };
 
 export default function ServicesActionComponent({
   titleBox,
   textButton,
-  // onClick
+  onClick
 }: servicesActionProps) {
   return (
     <div className={`${styles.featureCard} ${styles.declaration} ${styles.container} ${styles.moveupFeatureIcon}`}>
-      <PTText size='md' weight='400' className={`${styles.headingBox} ${styles.white}`}>{titleBox}</PTText>
+      <PTText size='md' weight='500' className={`${styles.headingBox} ${styles.white}`}>{titleBox}</PTText>
       <PTButton
-        size="md"
+        size="lg"
         isMain={false}
-        // onClick={onClick}
-        style={{ "marginBottom": "10px" }}
+        onClick={onClick}
+        style={{ "marginBottom": "8px" }}
       >{textButton}
       </PTButton>
     </div>

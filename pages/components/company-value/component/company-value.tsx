@@ -16,7 +16,7 @@ export default function CompanyValue({ companyValue }: CompanyValueProps) {
       <div className={styles.divBlock}>
         <Image src={companyValue.image} className={styles.images} width={160} height={160} alt="images" />
       </div>
-      <PTText size='md' weight='700' className={styles.headingBox}>{companyValue.title}</PTText>
+      <PTText asTag='h3' size='lg' weight='700' className={styles.headingBox}>{companyValue.title}</PTText>
       <ul className={styles.wCol}>
         {companyValue.items.map((item) => (
           <li key={item}>

@@ -13,10 +13,10 @@
 
 .wCol {
   width: 100%;
-  min-height: 1px;
-  padding-left: 14px;
-  padding-right: 14px;
+  padding-left: 20px;
+  padding-right: 20px;
   text-align: center;
+  margin-top: 20px;
 }
 
 .images {
@@ -29,7 +29,6 @@
 
 .headingBox {
   margin-top: 10px;
-  font-family: var(--font-family);
   color: var(--white-color);
   text-align: center;
   display: flex;
