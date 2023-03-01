@@ -6,6 +6,14 @@ import { GoogleAuthProvider, signInWithPopup, UserCredential } from 'firebase/au
 import { auth } from '../../utils/firebase';
 import { useAuthState } from "react-firebase-hooks/auth";
 import ReCAPTCHA from "react-google-recaptcha";
+import styles from './sign-in.module.scss';
+import Image from "next/image";
+import logoCompany from '../../public/logo/LogoTPTrip.png';
+import Link from "next/link";
+import PTText from "../../components/text/pt-text";
+import PTInput from "../../components/input/pt-input";
+import PTButton from "../../components/button/pt-button";
+
 
 export default function SignIn() {
   const [values, setValues] = useState({ email: 'sasha.maria@gmail.com', password: 'sasha' });
@@ -37,16 +45,17 @@ export default function SignIn() {
     if (!values.email || !values.password) {
       alert("Todos los campos son requeridos")
     } else {
-      const recaptchaValue = recaptchaRef.current?.getValue();
-      if (recaptchaValue) {
-        const { type } = await dispatch(signInUser(values));
-        if (type === "session/signInUser/fulfilled") {
-          router.push('/');
-          alert("Logado correctamente");
-        }
-      } else {
-        alert('falta no soy un robot')
+      // const recaptchaValue = recaptchaRef.current?.getValue();
+      // if (recaptchaValue) {
+      const { type } = await dispatch(signInUser(values));
+      if (type === "session/signInUser/fulfilled") {
+        router.push('/');
+        alert("Logado correctamente");
       }
+      // }
+      // else {
+      //   alert('falta no soy un robot')
+      // }
     }
   }
 
@@ -80,40 +89,91 @@ export default function SignIn() {
   const handlerecaptcha = (value: any) => { console.log("Captcha value:", value); }
 
   return (
-    <div >
-      <h1>Sign in</h1>
-      <input
-        name="email"
-        type="email"
-        value={values.email}
-        onChange={handleInputChange}
-        placeholder="Email"
-      />
-      <input
-        name="password"
-        type="password"
-        value={values.password}
-        onChange={handleInputChange}
-        placeholder="Password"
-      />
-      <ReCAPTCHA
-        ref={recaptchaRef}
-        sitekey="6Lcj9H8kAAAAAO1EXHjGueHubA1yVhvxYpW1gs2t"
-        onChange={handlerecaptcha}
-      />
-      <div>
-        <button
-          onClick={handleSignIn}
-        >Sign In
-        </button>
-        <button
-          onClick={handleSignInGoogle}
-        >
-          <i className="pi-google">Sign In with Google</i>
-        </button>
-      </div>
+    <div className={styles.container}>
+      <div className={styles.cardContent}>
+        <div className={styles.containerClose}>
+          <Image src={logoCompany} height={130} alt="logoCompany" />
+          <Link href="/">
+            <i className="pi pi-times"> Cerrar</i>
+          </Link>
+        </div>
 
-      {user && <pre>{user.email}</pre>}
+        <div className={styles.containerHeader}>
+          <PTText asTag="h2" size="lg" weight="600" className={styles.titleSignUp}>Ingresar</PTText>
+          <div className={styles.subHeader}>
+            <PTText asTag="h5" size="sm" weight="500" className={styles.countText}>¿Aún no tienes una cuenta?</PTText>
+            <Link href="/sign-up" className={styles.linkSignIn}>Regístrate</Link>
+          </div>
+        </div>
+
+        <div className={styles.containerForm}>
+          <div className={styles.signUpWithForm}>
+            <PTInput
+              size="md"
+              className={styles.inputs}
+              name="email"
+              type="email"
+              value={values.email}
+              onChange={handleInputChange}
+              placeholder="Email"
+            />
+            <PTInput
+              size="md"
+              className={styles.inputs}
+              name="password"
+              type="password"
+              value={values.password}
+              onChange={handleInputChange}
+              placeholder="Password"
+            />
+            {/* <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey="6Lcj9H8kAAAAAO1EXHjGueHubA1yVhvxYpW1gs2t"
+              onChange={handlerecaptcha}
+              className={styles.recaptcha}
+            /> */}
+          </div>
+
+          <div className={styles.signUpWithApps}>
+            <button
+              onClick={handleSignInGoogle}
+              className={styles.buttonSignUpWithApp}
+            >
+              <i style={{ "padding": "5px" }} className="pi pi-google"> Ingresar con Google</i>
+            </button>
+
+            {/* <button
+              onClick={handleSignInGoogle}
+              className={styles.buttonSignUpWithApp}
+            >
+              <i style={{ "padding": "5px" }} className="pi pi-facebook"> Ingresar con Facebook</i>
+            </button>
+
+            <button
+              onClick={handleSignInGoogle}
+              className={styles.buttonSignUpWithApp}
+            >
+              <i style={{ "padding": "5px" }} className="pi pi-apple"> Ingresar con Apple</i>
+            </button>
+
+            <button
+              onClick={handleSignInGoogle}
+              className={styles.buttonSignUpWithApp}
+            >
+              <i style={{ "padding": "5px" }} className="pi pi-at"> Ingresar con Hotmail</i>
+            </button> */}
+          </div>
+        </div>
+        <PTButton
+          size="lg"
+          isMain={false}
+          onClick={handleSignIn}
+          className={styles.buttonSignIn}
+        >Ingresar
+        </PTButton>
+
+        {user && <pre>{user.email}</pre>}
+      </div>
     </div>
   )
 }

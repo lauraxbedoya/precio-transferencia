@@ -40,24 +40,25 @@ export default function SignUp() {
     if (!values.email || !values.confirmEmail || !values.confirmPassword || !values.password) {
       alert('todos los campos son requeridos')
     } else {
-      const recaptchaValue = recaptchaRef.current?.getValue();
-      if (recaptchaValue) {
-        if (values.email === values.confirmEmail && values.password === values.confirmPassword) {
-          try {
-            const resp = await api.post('/users', { ...values, createdFrom: 'sign_up' });
-            setValues(resp.data);
-            const { type } = await dispatch(signInUser(values));
-            if (type === "session/signInUser/fulfilled") {
-              alert("Cuenta creada exitosamente");
-              router.push('/');
-            }
-          } catch (error) {
-            console.log(error);
+      // const recaptchaValue = recaptchaRef.current?.getValue();
+      // if (recaptchaValue) {
+      if (values.email === values.confirmEmail && values.password === values.confirmPassword) {
+        try {
+          const resp = await api.post('/users', { ...values, createdFrom: 'sign_up' });
+          setValues(resp.data);
+          const { type } = await dispatch(signInUser(values));
+          if (type === "session/signInUser/fulfilled") {
+            alert("Cuenta creada exitosamente");
+            router.push('/');
           }
-        } else {
-          alert('falta no soy un robot')
+        } catch (error) {
+          console.log(error);
         }
       }
+      // else {
+      //   alert('falta no soy un robot')
+      // }
+      // }
     };
   }
 
@@ -79,7 +80,7 @@ export default function SignUp() {
         <div className={styles.containerClose}>
           <Image src={logoCompany} height={130} alt="logoCompany" />
           <Link href="/">
-            <i className="pi pi-times">Cerrar</i>
+            <i className="pi pi-times"> Cerrar</i>
           </Link>
         </div>
 
@@ -129,19 +130,12 @@ export default function SignUp() {
               onChange={handleInputChange}
               placeholder="Escribe tú contraseña de nuevo"
             />
-            <ReCAPTCHA
+            {/* <ReCAPTCHA
               ref={recaptchaRef}
               sitekey="6Lcj9H8kAAAAAO1EXHjGueHubA1yVhvxYpW1gs2t"
               onChange={handlerecaptcha}
               className={styles.recaptcha}
-            />
-            <PTButton
-              size="lg"
-              isMain={false}
-              onClick={handleSignUp}
-              className={styles.buttonSignUp}
-            >Regístrate
-            </PTButton>
+            /> */}
           </div>
 
           <div className={styles.signUpWithApps}>
@@ -149,31 +143,38 @@ export default function SignUp() {
               onClick={handleSignUpGoogle}
               className={styles.buttonSignUpWithApp}
             >
-              <i className="pi pi-google"> Continuar con Google</i>
+              <i style={{ "padding": "5px" }} className="pi pi-google"> Continuar con Google</i>
+            </button>
+
+            {/* <button
+              onClick={handleSignUpGoogle}
+              className={styles.buttonSignUpWithApp}
+            >
+              <i style={{ "padding": "5px" }} className="pi pi-facebook"> Continuar con Facebook</i>
             </button>
 
             <button
               onClick={handleSignUpGoogle}
               className={styles.buttonSignUpWithApp}
             >
-              <i className="pi pi-facebook"> Continuar con Facebook</i>
+              <i style={{ "padding": "5px" }} className="pi pi-apple"> Continuar con Apple</i>
             </button>
 
             <button
               onClick={handleSignUpGoogle}
               className={styles.buttonSignUpWithApp}
             >
-              <i className="pi pi-apple"> Continuar con Apple</i>
-            </button>
-
-            <button
-              onClick={handleSignUpGoogle}
-              className={styles.buttonSignUpWithApp}
-            >
-              <i className="pi pi-at"> Continuar con Hotmail</i>
-            </button>
+              <i style={{ "padding": "5px" }} className="pi pi-at"> Continuar con Hotmail</i>
+            </button> */}
           </div>
         </div>
+        <PTButton
+          size="lg"
+          isMain={false}
+          onClick={handleSignUp}
+          className={styles.buttonSignUp}
+        >Regístrate
+        </PTButton>
 
         <PTText size="xxs" weight="500">* Al registrarte aceptas nuestros Términos y Condiciones y La Política de Privacidad y Tratamiento de Datos.</PTText>
       </div>

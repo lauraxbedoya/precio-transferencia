@@ -26,6 +26,9 @@ function Layout({ children }: Props) {
         <div className={styles.navImage}>
           <Link href='/'>
             <Image src={logo} height={65} alt="logo" />
+            {user &&
+              <span style={{ "fontSize": "12px" }}>{user.email}</span>
+            }
           </Link>
         </div>
         <div className={styles.navContainer}>
