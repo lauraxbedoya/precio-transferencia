@@ -68,14 +68,24 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-li {
+li.pt-list {
   list-style: none !important;
 }
 
-li::before {
+li.pt-list::before {
   content: "\00BB";
-  color: white;
-  margin-right: 1rem;
+  color: var(--white-color);
+  margin-right: 0.7rem;
   font-size: 25px;
-  font-weight: 500;
+  font-weight: 600;
+}
+
+li.pt-list.pro::before {
+  color: var(--ternary-color);
+}
+
+li.pt-list.sublist::before {
+  content: "\1405";
+  font-size: 15px;
+  font-weight: 600;
 }

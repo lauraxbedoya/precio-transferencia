@@ -22,7 +22,7 @@ const resultMessages = {
       },
       { text: 'El informe técnico será elaborado a partir de la normativa colombiana vigente, lo cuál te dará certeza de las obligaciones que tú compañía debe presentar para dar cumplimiento al régimen de precios de trasnferencia.' },
     ],
-    price: '259.000',
+    price: '259.',
   },
   Message2: {
     plan: '¡Obtener el informe técnico de TPTRIP sobre las obligaciones de precios de trasnferencia de mi compañía!',
@@ -41,7 +41,7 @@ const resultMessages = {
       },
       { text: 'El informe técnico será elaborado a partir de la normativa colombiana vigente, lo cuál te dará certeza de las obligaciones que tú compañía debe presentar para dar cumplimiento al régimen de precios de trasnferencia.' }
     ],
-    price: '189.000',
+    price: '189.',
   },
 }
 
@@ -56,21 +56,29 @@ export default function Result() {
       <div className={styles.subContainer}>
 
         <div className={styles.plan}>
-          <PTText size="md" weight="600">{resultMessages[resultMessage].plan}</PTText>
+          <PTText asTag="h1" size="xxl" weight="600">{resultMessages[resultMessage].plan}</PTText>
         </div>
 
         <div className={styles.containerDivInfo}>
           <div className={styles.containerPrice}>
-            <PTText size="md" weight="600">{resultMessages[resultMessage].price}</PTText>
+            <div className={styles.pricingCurrency}>$</div>
+            <PTText size="xxxl" weight="600">{resultMessages[resultMessage].price}</PTText>
+            <span className={styles.moveUpCents}>000</span>
           </div>
-          <ul>
+
+
+          <ul className={styles.containerListItems}>
             {resultMessages[resultMessage].planItems.map((plan) => (
-              <>
-                <li key={plan.text}>
-                  <PTText size='sm' weight='500'>{plan.text}</PTText>
-                </li>
-                <li><PTText size='sm' weight='500'>{plan.children}</PTText></li>
-              </>
+              <li key={plan.text} className='pt-list pro'>
+                <PTText size='md' weight='400'>{plan.text}</PTText>
+                {plan.children && (
+                  <ul>
+                    {plan.children.map((child) => (
+                      <li className="pt-list sublist pro" key={child}><PTText size='md' weight='400'>{child}</PTText></li>
+                    ))}
+                  </ul>
+                )}
+              </li>
             ))}
           </ul>
         </div>

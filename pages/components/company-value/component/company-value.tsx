@@ -19,7 +19,7 @@ export default function CompanyValue({ companyValue }: CompanyValueProps) {
       <PTText asTag='h3' size='lg' weight='700' className={styles.headingBox}>{companyValue.title}</PTText>
       <ul className={styles.wCol}>
         {companyValue.items.map((item) => (
-          <li key={item}>
+          <li key={item} className='pt-list'>
             <PTText size='md' weight='400' className={styles.textBox}>{item}</PTText>
           </li>
         ))}

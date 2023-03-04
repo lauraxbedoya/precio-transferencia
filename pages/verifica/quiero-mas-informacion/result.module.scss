@@ -5,8 +5,6 @@
 
 .subContainer {
   display: flex;
-  overflow: visible;
-  width: 750px;
   margin-right: auto;
   margin-bottom: 40px;
   margin-left: auto;
@@ -19,15 +17,49 @@
   box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
   transition: box-shadow 0.3s;
   text-align: center;
-  width: 60%;
+  width: 44%;
+  padding: 0px 0px 29px;
+}
+
+.containerDivInfo {
+  display: flex;
+  flex-direction: column;
 }
 
 .plan {
-  background: bisque;
+  background: var(--ternary-color);
+  color: var(--white-color);
   display: flex;
-  padding: 70px 50px 70px;
+  padding: 34px 50px 45px;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
 }
 
-.containerPrice {}
+.containerPrice {
+  background: var(--primary-color);
+  padding: 26px;
+  color: var(--black-color);
+  display: flex;
+  margin-top: -20px;
+  justify-content: center;
+  align-items: flex-start;
+  line-height: 44px;
+}
+
+.pricingCurrency {
+  margin-right: 6px;
+  color: #7a8292;
+  font-size: 27px;
+  line-height: 20px;
+}
+
+.moveUpCents {
+  font-size: 30px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.containerListItems {
+  margin: 34px 40px;
+  text-align: left;
+}

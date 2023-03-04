@@ -116,11 +116,3 @@
   align-items: center;
   gap: 1rem;
 }
-
-.planListItem::before {
-  color: var(--primary-color);
-}
-
-.planListItemPro::before {
-  color: var(--white-color);
-}

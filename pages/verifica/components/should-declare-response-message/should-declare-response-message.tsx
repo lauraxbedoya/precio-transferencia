@@ -1,5 +1,6 @@
 import PTButton from "../../../../components/button/pt-button";
 import PTText from "../../../../components/text/pt-text";
+import styles from './should-declare-response-message.module.scss';
 
 export type ShouldDeclareMessages = 'Message1' | 'Message2'
 
@@ -19,13 +20,13 @@ export default function ShouldDeclareResponseMessage({ name, nit, message, onCli
   return (
     <div>
       <div>
-        <PTText size='md' weight='700'>{name}</PTText>
+        <PTText size='xl' weight='400'>{name}</PTText>
       </div>
       <div>
-        <PTText size='sm' weight='400'>{messages[message](nit)}</PTText>
+        <PTText size='md' weight='400'>{messages[message](nit)}</PTText>
       </div>
       <div>
-        <PTButton size='md' isMain onClick={onClick}>¡Quiero más información!</PTButton>
+        <PTButton size='lg' isMain onClick={onClick}>¡Quiero más información!</PTButton>
       </div>
     </div>
 

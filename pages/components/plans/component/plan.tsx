@@ -24,7 +24,7 @@ export default function Plan({ paidPlan }: PaidPlansProps) {
           <div className={styles.pricingListItem}>
             <ul>
               {paidPlan.planItems.map((plan) => (
-                <li key={plan} className={!paidPlan.isPro ? styles.planListItem : styles.planListItemPro}>
+                <li key={plan} className={`${!paidPlan.isPro ? 'pro' : ''} pt-list`}>
                   <PTText size='sm' weight='500'>{plan}</PTText>
                 </li>
               ))}
