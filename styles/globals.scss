@@ -67,3 +67,15 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 20px;
   }
 }
+
+li {
+  list-style: none !important;
+}
+
+li::before {
+  content: "\00BB";
+  color: white;
+  margin-right: 1rem;
+  font-size: 25px;
+  font-weight: 500;
+}

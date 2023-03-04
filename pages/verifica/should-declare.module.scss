@@ -6,7 +6,7 @@
 .conditionsToPayTaxWrapper {
   z-index: 1;
   width: 100%;
-  margin-top: 140px;
+  margin-top: 40px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 0;
@@ -14,30 +14,30 @@
 }
 
 .conditionFormContent {
-  position: relative;
   display: flex;
   overflow: visible;
   width: 750px;
   margin-right: auto;
   margin-bottom: 40px;
   margin-left: auto;
-  padding: 25px 0 60px;
+  padding: 25px 33px 55px;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  flex: 0 auto;
+  flex: 0 1 auto;
   border-radius: 30px;
   background-color: var(--white-color);
   box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
-  transition: box-shadow .3s;
+  transition: box-shadow 0.3s;
   text-align: center;
+  width: 60%;
 }
 
 .logoHeader {
-  width: 200px;
-  height: 40px;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
 }
 
 .clockImage {
@@ -51,7 +51,6 @@
 .formHead {
   margin-top: 20px;
   margin-bottom: 0;
-  margin-left: 20px;
   padding-top: 0;
   line-height: 28px;
 }
@@ -64,41 +63,15 @@
   background-color: var(--border-input-color);
 }
 
-.formBlock {
-  margin-right: 25px;
-  margin-left: 25px;
-}
-
 .questionFormContainer {
   width: 100%;
   margin-top: 10px;
-}
-
-.wCheckbox {
-  display: block;
-  margin-bottom: 5px;
-  padding-left: 20px;
-}
-
-.checkboxField {
-  display: flex;
-  width: 100%;
-  margin-bottom: 10px;
-  justify-content: center;
-  align-items: center;
 }
 
 .wCheckboxInput {
   float: left;
   margin: 4px 0 0 -20px;
   line-height: normal;
-}
-
-.checkboxLabel {
-  display: inline-block;
-  cursor: pointer;
-  margin-bottom: 0;
-  margin-left: 5px;
 }
 
 .submitButton {

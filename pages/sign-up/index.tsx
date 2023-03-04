@@ -95,40 +95,40 @@ export default function SignUp() {
         <div className={styles.containerForm}>
           <div className={styles.signUpWithForm}>
             <PTInput
-              size="md"
               className={styles.inputs}
               name="email"
               type="email"
               value={values.email}
               onChange={handleInputChange}
               placeholder="Email"
+              label="Email"
             />
             <PTInput
-              size="md"
               className={styles.inputs}
               name="confirmEmail"
               type="email"
               value={values.confirmEmail}
               onChange={handleInputChange}
               placeholder="Ingresa tú email de nuevo"
+              label="Ingresa tú email de nuevo"
             />
             <PTInput
-              size="md"
               className={styles.inputs}
               name="password"
               type="password"
               value={values.password}
               onChange={handleInputChange}
               placeholder="Contraseña"
+              label="Contraseña"
             />
             <PTInput
-              size="md"
               className={styles.inputs}
               name="confirmPassword"
               type="password"
               value={values.confirmPassword}
               onChange={handleInputChange}
               placeholder="Escribe tú contraseña de nuevo"
+              label="Escribe tú contraseña de nuevo"
             />
             {/* <ReCAPTCHA
               ref={recaptchaRef}

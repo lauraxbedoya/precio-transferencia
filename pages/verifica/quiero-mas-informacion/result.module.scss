@@ -1,0 +1,33 @@
+.container {
+  overflow: hidden;
+  padding-top: 3%;
+}
+
+.subContainer {
+  display: flex;
+  overflow: visible;
+  width: 750px;
+  margin-right: auto;
+  margin-bottom: 40px;
+  margin-left: auto;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex: 0 1 auto;
+  border-radius: 30px;
+  background-color: var(--white-color);
+  box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
+  transition: box-shadow 0.3s;
+  text-align: center;
+  width: 60%;
+}
+
+.plan {
+  background: bisque;
+  display: flex;
+  padding: 70px 50px 70px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.containerPrice {}

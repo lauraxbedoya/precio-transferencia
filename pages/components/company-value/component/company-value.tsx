@@ -20,7 +20,7 @@ export default function CompanyValue({ companyValue }: CompanyValueProps) {
       <ul className={styles.wCol}>
         {companyValue.items.map((item) => (
           <li key={item}>
-            <PTText size='sm' weight='400' className={styles.textBox}>{item}</PTText>
+            <PTText size='md' weight='400' className={styles.textBox}>{item}</PTText>
           </li>
         ))}
       </ul>

@@ -1,0 +1,55 @@
+.formBlock {
+  margin-right: 25px;
+  margin-left: 25px;
+  display: flex;
+  width: 100%;
+}
+
+.personalInformation {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.personalForm {
+  display: flex;
+  flex-direction: column;
+  padding: 7px 15px 0px;
+}
+
+.companyInformation {
+  flex: 1;
+}
+
+.companyForm {
+  padding: 7px 15px 0px;
+}
+
+.questionsDivider {
+  min-height: 1px;
+  min-width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: var(--border-input-color);
+}
+
+.wCheckbox {
+  display: block;
+  margin-bottom: 5px;
+  padding-left: 20px;
+}
+
+.checkboxField {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkboxLabel {
+  display: inline-block;
+  cursor: pointer;
+  margin-top: 12px;
+  margin-left: 5px;
+}

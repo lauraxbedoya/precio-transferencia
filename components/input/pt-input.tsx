@@ -1,41 +1,20 @@
-import { InputText, InputTextProps } from 'primereact/inputtext';
-import { useEffect, useState } from 'react';
 import styles from './pt-input.module.scss';
+import { InputHTMLAttributes } from 'react';
+import PTText from '../text/pt-text';
 
-export interface PTInputProps extends Omit<InputTextProps, 'size'> {
-  size?: 'xl' | 'md' | 'sm';
+export interface PTInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
 }
 
 export default function PTInput({
-  size = 'md',
+  label,
   ...props
 }: PTInputProps) {
 
-  const [customClass, setCustomClass] = useState('');
-
-  const setStyles = () => {
-    let styleClass: string = '';
-    switch (size) {
-      case 'xl':
-        styleClass = styles.inputXl
-        break;
-      case 'md':
-        styleClass = styles.inputMd
-        break;
-      case 'sm':
-        styleClass = styles.inputSm
-      default:
-        break
-    }
-    setCustomClass(styleClass);
-  }
-
-  useEffect(setStyles, [size]);
-
   return (
-    <InputText
-      {...props}
-      className={`${styles.mainStyleInput} p-float-label ${customClass} ${props.className}`}
-    />
+    <div className={`${styles.formColumn} ${styles.wCol} ${styles.wCol4}`}>
+      <PTText asTag='h3' size='md' weight='700' className={styles.textHeader}>{label}</PTText>
+      <input {...props} className={`${styles.formTextField} ${styles.wInput}`} />
+    </div>
   )
 }

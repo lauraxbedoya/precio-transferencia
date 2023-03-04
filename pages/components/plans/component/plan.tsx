@@ -5,7 +5,7 @@ import styles from './plan.module.scss';
 export interface PaidPlansProps {
   paidPlan: {
     planItems: string[];
-    plan: string;
+    plan?: string;
     price: string;
     isPro: boolean;
     button: string;
@@ -24,7 +24,7 @@ export default function Plan({ paidPlan }: PaidPlansProps) {
           <div className={styles.pricingListItem}>
             <ul>
               {paidPlan.planItems.map((plan) => (
-                <li key={plan}>
+                <li key={plan} className={!paidPlan.isPro ? styles.planListItem : styles.planListItemPro}>
                   <PTText size='sm' weight='500'>{plan}</PTText>
                 </li>
               ))}

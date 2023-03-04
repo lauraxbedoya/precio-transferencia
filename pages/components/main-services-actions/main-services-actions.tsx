@@ -9,7 +9,7 @@ export default function MainServicesAction() {
   const router = useRouter();
 
   const handleShouldDeclare = () => {
-    router.push('/obligados-declarar-renta-2023');
+    router.push('/verifica');
   };
 
   const handleDateDeclare = () => {
@@ -22,13 +22,13 @@ export default function MainServicesAction() {
 
       <div className={styles.featureCards}>
         <ServicesActionComponent
-          titleBox="Verifica si tu entidad está sujeta al régimen de precios de transferencia"
+          titleBox="Verifica si tu compañia está sujeta al régimen de precios de transferencia"
           textButton="¡Verifica!"
           onClick={handleShouldDeclare}
         />
 
         <ServicesActionComponent
-          titleBox="Revisa los plazos en los cuales se deben presentar las obligaciones de precios de transferencia de tu entidad"
+          titleBox="Revisa los plazos en los cuales se deben presentar las obligaciones de precios de transferencia de tu compañia"
           textButton="¡Revisa!"
           onClick={handleDateDeclare}
         />

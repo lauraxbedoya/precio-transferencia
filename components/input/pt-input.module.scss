@@ -1,28 +1,45 @@
-.mainStyleInput {
-  display: inline-block !important;
-  font-size: 14px !important;
-  color: var(--black-color) !important;
-  border: 1px solid var(--border-input-color) !important;
-  transition: all .3s !important;
+.formColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
-.mainStyleInput:hover {
-  border: 1px solid var(--primary-color);
-  transition: all .3s !important;
-  box-shadow: var(--primary-color) 0px 0px 0px 1px;
+.wCol {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.inputXl {
-  width: 450px;
+.wCol4 {
+  width: 100%;
 }
 
-.inputMd {
-  height: 40px;
-  border-radius: 4px;
-  padding: 6.5px 11px;
-  width: 400px;
+.textHeader {
+  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: left;
+  margin-top: 0px;
 }
 
-.inputSm {
-  width: 300px;
+.formTextField {
+  border: 1px solid rgba(132,124,124,.24);
+  border-radius: 5px;
+  font-family: 'GothamRounded';
+}
+
+.wInput {
+  display: block;
+  width: 100%;
+  height: 38px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
 }

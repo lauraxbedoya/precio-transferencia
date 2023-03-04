@@ -30,7 +30,7 @@ const paidPlans = [
   {
     planItems: [
       'Todo lo que incluye el plan Convencional.',
-      'Durante todo el proceso, tendrás a tu disposición un consultor experto en precios de transferencia que te asesorará de forma personalizada en reunión virtual de hasta cuatro horas.'
+      'Durante todo el proceso, tendrás a tu disposición consultor experto en precios de transferencia que te asesorará de forma personalizada en reunión virtual de hasta cuatro horas.'
     ],
     plan: 'Plan Élite Diamante',
     price: '899.',

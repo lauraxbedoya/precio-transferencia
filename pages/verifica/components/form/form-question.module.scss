@@ -12,19 +12,20 @@
   text-align: left;
 }
 
-.answerBlock {
-  display: flex;
+.answerIcon {
+  margin: 0px 23px auto 0px;
 }
 
-.answerIcon {
-  margin-top: 14px;
-  margin-bottom: auto;
+.questionAndDescription {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .answerSelector {
   display: flex;
-  margin-left: 10px;
   flex-direction: column;
+  align-items: center;
 }
 
 .questionDescription {
@@ -45,4 +46,9 @@
   display: inline-block;
   cursor: pointer;
   margin-bottom: 0;
+}
+
+.logoAndQuestion {
+  display: flex;
+  flex-direction: row;
 }

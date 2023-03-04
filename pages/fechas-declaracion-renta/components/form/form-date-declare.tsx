@@ -18,9 +18,8 @@ export interface DateDeclareProps extends InputHTMLAttributes<HTMLInputElement> 
 export default function FormDateDeclare({ textHeader, textDescription, ...props }: DateDeclareProps) {
   return (
     <div>
-      <PTText size='xs' weight='700'>{textHeader}</PTText>
       <p>{textDescription}</p>
-      <PTInput {...props} size='sm'></PTInput>
+      <PTInput {...props} label={textHeader} />
     </div>
   )
 }

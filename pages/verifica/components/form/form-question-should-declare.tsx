@@ -14,22 +14,25 @@ export interface FormQuestionProps {
 const FormQuestionShouldDeclare = memo(({ question, onAnswer }: FormQuestionProps) => {
   return (
     <div className={styles.questionBlock}>
-      <PTText size='sm' weight='700' className={styles.mainQuestionTitle}>{question.question}</PTText>
-      <div className={styles.answerBlock}>
+      <div className={styles.logoAndQuestion}>
         <div className={styles.answerIcon}>
           <Image src={iconQuestions} alt="iconQuestion" />
         </div>
-        <div className={styles.answerSelector}>
+        <div className={styles.questionAndDescription}>
+          <PTText size='xs' weight='500' className={styles.mainQuestionTitle}>{question.question}</PTText>
           <PTText size='xs' weight='400' className={styles.questionDescription}>{question.description}</PTText>
-          <label className={`${styles.radio} ${styles.wRadio}`}>
-            <input type="radio" name={`shouldDeclareAnswer-${question.id}`} onChange={() => onAnswer(question.id, 'no')} />
-            <PTText size='xs' weight='400' className={styles.wFormLabel}>No</PTText>
-          </label>
-          <label className={`${styles.radio} ${styles.wRadio}`}>
-            <input type="radio" name={`shouldDeclareAnswer-${question.id}`} onChange={() => onAnswer(question.id, 'si')} />
-            <PTText size='xs' weight='400' className={styles.wFormLabel}>Sí</PTText>
-          </label>
         </div>
+      </div>
+
+      <div className={styles.answerSelector}>
+        <label className={`${styles.radio} ${styles.wRadio}`}>
+          <input type="radio" name={`shouldDeclareAnswer-${question.id}`} onChange={() => onAnswer(question.id, 'no')} />
+          <PTText size='xs' weight='400' className={styles.wFormLabel}>No</PTText>
+        </label>
+        <label className={`${styles.radio} ${styles.wRadio}`}>
+          <input type="radio" name={`shouldDeclareAnswer-${question.id}`} onChange={() => onAnswer(question.id, 'si')} />
+          <PTText size='xs' weight='400' className={styles.wFormLabel}>Sí</PTText>
+        </label>
       </div>
     </div>
   );

@@ -109,22 +109,22 @@ export default function SignIn() {
         <div className={styles.containerForm}>
           <div className={styles.signUpWithForm}>
             <PTInput
-              size="md"
               className={styles.inputs}
               name="email"
               type="email"
               value={values.email}
               onChange={handleInputChange}
               placeholder="Email"
+              label="Email"
             />
             <PTInput
-              size="md"
               className={styles.inputs}
               name="password"
               type="password"
               value={values.password}
               onChange={handleInputChange}
               placeholder="Password"
+              label="Password"
             />
             {/* <ReCAPTCHA
               ref={recaptchaRef}
