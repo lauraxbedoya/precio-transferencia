@@ -1,6 +1,10 @@
 .container {
   display: flex;
-  background-image: linear-gradient(270deg,var(--primary-color) -50%, var(--ternary-color) 60%);
+  background-image: linear-gradient(
+    270deg,
+    var(--primary-color) -50%,
+    var(--ternary-color) 60%
+  );
   flex-direction: column;
   justify-content: center;
 }
@@ -45,7 +49,7 @@
 
 .containerCurves {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .imageCurves {

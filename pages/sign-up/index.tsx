@@ -1,19 +1,22 @@
-import { useRouter } from "next/router";
-import React, { useState } from "react";
-import { useAppDispatch } from "../../redux/store";
-import ReCAPTCHA from "react-google-recaptcha";
-import { api } from "../../helpers/api.helper";
-import { GoogleAuthProvider, signInWithPopup, UserCredential } from 'firebase/auth';
-import { signInGoogleUser, signInUser } from "../../redux/actions/session.action";
-import { auth } from "../../utils/firebase";
-import PTText from "../../components/text/pt-text";
-import Image from "next/image";
-import logoCompany from '../../public/logo/LogoTPTrip.png';
-import PTButton from "../../components/button/pt-button";
-import Link from "next/link";
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import { useAppDispatch } from '@/redux/store';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { api } from '@/helpers/api.helper';
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  UserCredential,
+} from 'firebase/auth';
+import { signInGoogleUser, signInUser } from '@/redux/actions/session.action';
+import { auth } from '@/utils/firebase';
+import PTText from '@/components/text/pt-text';
+import Image from 'next/image';
+import logoCompany from '@/public/logo/LogoTPTrip.png';
+import PTButton from '@/components/button/pt-button';
+import Link from 'next/link';
 import styles from './sign-up.module.scss';
-import PTInput from "../../components/input/pt-input";
-
+import PTInput from '@/components/input/pt-input';
 
 export default function SignUp() {
   const [values, setValues] = useState({
@@ -26,29 +29,37 @@ export default function SignUp() {
   const router = useRouter();
   const recaptchaRef = React.createRef<ReCAPTCHA>();
 
-
   const handleInputChange = (e: any) => {
-    setValues(
-      {
-        ...values,
-        [e.target.name]: e.target.value,
-      }
-    )
-  }
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSignUp = async () => {
-    if (!values.email || !values.confirmEmail || !values.confirmPassword || !values.password) {
-      alert('todos los campos son requeridos')
+    if (
+      !values.email ||
+      !values.confirmEmail ||
+      !values.confirmPassword ||
+      !values.password
+    ) {
+      alert('todos los campos son requeridos');
     } else {
       // const recaptchaValue = recaptchaRef.current?.getValue();
       // if (recaptchaValue) {
-      if (values.email === values.confirmEmail && values.password === values.confirmPassword) {
+      if (
+        values.email === values.confirmEmail &&
+        values.password === values.confirmPassword
+      ) {
         try {
-          const resp = await api.post('/users', { ...values, createdFrom: 'sign_up' });
+          const resp = await api.post('/users', {
+            ...values,
+            createdFrom: 'sign_up',
+          });
           setValues(resp.data);
           const { type } = await dispatch(signInUser(values));
-          if (type === "session/signInUser/fulfilled") {
-            alert("Cuenta creada exitosamente");
+          if (type === 'session/signInUser/fulfilled') {
+            alert('Cuenta creada exitosamente');
             router.push('/');
           }
         } catch (error) {
@@ -59,20 +70,22 @@ export default function SignUp() {
       //   alert('falta no soy un robot')
       // }
       // }
-    };
-  }
+    }
+  };
 
   const googleProvider = new GoogleAuthProvider();
   const handleSignUpGoogle = async () => {
     const result: UserCredential = await signInWithPopup(auth, googleProvider);
     const { type } = await dispatch(signInGoogleUser(result.user));
-    if (type === "session/signInGoogleUser/fulfilled") {
+    if (type === 'session/signInGoogleUser/fulfilled') {
       router.push('/');
-      alert("Cuenta creada exitosamente con google");
+      alert('Cuenta creada exitosamente con google');
     }
-  }
+  };
 
-  const handlerecaptcha = (value: any) => { console.log("Captcha value:", value); }
+  const handlerecaptcha = (value: any) => {
+    console.log('Captcha value:', value);
+  };
 
   return (
     <div className={styles.container}>
@@ -85,10 +98,26 @@ export default function SignUp() {
         </div>
 
         <div className={styles.containerHeader}>
-          <PTText asTag="h2" size="lg" weight="600" className={styles.titleSignUp}>Regístrate</PTText>
+          <PTText
+            asTag="h2"
+            size="lg"
+            weight="600"
+            className={styles.titleSignUp}
+          >
+            Regístrate
+          </PTText>
           <div className={styles.subHeader}>
-            <PTText asTag="h5" size="sm" weight="500" className={styles.countText}>¿Ya tienes cuenta?</PTText>
-            <Link href="/sign-in" className={styles.linkSignIn}>Inicia Sesión</Link>
+            <PTText
+              asTag="h5"
+              size="sm"
+              weight="500"
+              className={styles.countText}
+            >
+              ¿Ya tienes cuenta?
+            </PTText>
+            <Link href="/sign-in" className={styles.linkSignIn}>
+              Inicia Sesión
+            </Link>
           </div>
         </div>
 
@@ -143,7 +172,10 @@ export default function SignUp() {
               onClick={handleSignUpGoogle}
               className={styles.buttonSignUpWithApp}
             >
-              <i style={{ "padding": "5px" }} className="pi pi-google"> Continuar con Google</i>
+              <i style={{ padding: '5px' }} className="pi pi-google">
+                {' '}
+                Continuar con Google
+              </i>
             </button>
 
             {/* <button
@@ -173,11 +205,15 @@ export default function SignUp() {
           isMain={false}
           onClick={handleSignUp}
           className={styles.buttonSignUp}
-        >Regístrate
+        >
+          Regístrate
         </PTButton>
 
-        <PTText size="xxs" weight="500">* Al registrarte aceptas nuestros Términos y Condiciones y La Política de Privacidad y Tratamiento de Datos.</PTText>
+        <PTText size="xxs" weight="500">
+          * Al registrarte aceptas nuestros Términos y Condiciones y La Política
+          de Privacidad y Tratamiento de Datos.
+        </PTText>
       </div>
     </div>
-  )
+  );
 }

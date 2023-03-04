@@ -1,5 +1,5 @@
-import LineDivider from '../../../components/line-divider/line-divider';
-import PTText from '../../../components/text/pt-text';
+import LineDivider from '@/components/line-divider/line-divider';
+import PTText from '@/components/text/pt-text';
 import Plan from './component/plan';
 import styles from './plans.module.scss';
 
@@ -10,7 +10,7 @@ const paidPlans = [
       'Chat de ayuda con experto en precios de trasnferencia que resuelve tus dudas generales.',
       'El tiempo de elaboración será a tu ritmo. Si decides detenerte en algún momento tu información quedará guardada y podrás retomar cuando quiras.',
       'Una vez termines de ingresas y verificar la información requerida, PT PRO te entregará la declaración de precios de trasnferencia.',
-      'Te garantizamos el cumplimiento de lo establecido en la ley Colombiana de precios de transferencia, en específico el artículo 260-9 del Estatuto Tributario.'
+      'Te garantizamos el cumplimiento de lo establecido en la ley Colombiana de precios de transferencia, en específico el artículo 260-9 del Estatuto Tributario.',
     ],
     plan: 'Plan PT Pro',
     price: '379.',
@@ -20,7 +20,7 @@ const paidPlans = [
   {
     planItems: [
       'Todo lo que incluye el plan PT PRO.',
-      'Cuando termines el proceso podrás agendar una reunión virtual de hasta dos horas con un consultor experto en precios de trasnferencia para revisar tu información.'
+      'Cuando termines el proceso podrás agendar una reunión virtual de hasta dos horas con un consultor experto en precios de trasnferencia para revisar tu información.',
     ],
     plan: 'Plan Convencional',
     price: '589.',
@@ -30,13 +30,13 @@ const paidPlans = [
   {
     planItems: [
       'Todo lo que incluye el plan Convencional.',
-      'Durante todo el proceso, tendrás a tu disposición consultor experto en precios de transferencia que te asesorará de forma personalizada en reunión virtual de hasta cuatro horas.'
+      'Durante todo el proceso, tendrás a tu disposición consultor experto en precios de transferencia que te asesorará de forma personalizada en reunión virtual de hasta cuatro horas.',
     ],
     plan: 'Plan Élite Diamante',
     price: '899.',
     isPro: false,
     button: '¡Adquiere tu plan Élite Diamante!',
-  }
+  },
 ];
 
 const keyDataItems = [
@@ -51,31 +51,52 @@ export default function Plans() {
       <div className={styles.declaracionPlansWrapper}>
         <div className={styles.sectionIntro}>
           <LineDivider />
-          <PTText asTag='h1' size='xxxl' weight='700' className={styles.headingPlans}>Planes PT-Trip para la elaboración de la declaración de Precios de Transferencia</PTText>
-          <PTText size='sm' weight='500' className={`${styles.title} ${styles.caps} ${styles.price}`}>De la mano de PR-PRO, prepara la declaración de precios de transferencia de manera segura y sin obstáculos.</PTText>
+          <PTText
+            asTag="h1"
+            size="xxxl"
+            weight="700"
+            className={styles.headingPlans}
+          >
+            Planes PT-Trip para la elaboración de la declaración de Precios de
+            Transferencia
+          </PTText>
+          <PTText
+            size="sm"
+            weight="500"
+            className={`${styles.title} ${styles.caps} ${styles.price}`}
+          >
+            De la mano de PR-PRO, prepara la declaración de precios de
+            transferencia de manera segura y sin obstáculos.
+          </PTText>
         </div>
 
         <div className={styles.wColumns}>
           <div className={`${styles.wCol} ${styles.wCol6} ${styles.wCol8}`}>
             <div className={styles.estandarAndExpres}>
-              {paidPlans.map(paidPlan =>
-                <Plan
-                  key={paidPlan.plan}
-                  paidPlan={paidPlan}
-                />
-              )}
+              {paidPlans.map((paidPlan) => (
+                <Plan key={paidPlan.plan} paidPlan={paidPlan} />
+              ))}
             </div>
           </div>
         </div>
 
-        <PTText size='md' weight='700' className={styles.important}>Importante...</PTText>
+        <PTText size="md" weight="700" className={styles.important}>
+          Importante...
+        </PTText>
 
         <div className={styles.containerTextEnd}>
-          {keyDataItems.map(item => (
-            <PTText size='xs' weight='500' className={styles.itemsSpan} key={item}>{item}</PTText>
+          {keyDataItems.map((item) => (
+            <PTText
+              size="xs"
+              weight="500"
+              className={styles.itemsSpan}
+              key={item}
+            >
+              {item}
+            </PTText>
           ))}
         </div>
       </div>
     </div>
-  )
+  );
 }
