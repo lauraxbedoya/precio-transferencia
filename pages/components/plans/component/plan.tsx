@@ -1,5 +1,5 @@
-import PTButton from '../../../../components/button/pt-button';
-import PTText from '../../../../components/text/pt-text';
+import PTButton from '@/components/button/pt-button';
+import PTText from '@/components/text/pt-text';
 import styles from './plan.module.scss';
 
 export interface PaidPlansProps {
@@ -9,16 +9,39 @@ export interface PaidPlansProps {
     price: string;
     isPro: boolean;
     button: string;
-  }
+  };
 }
 
 export default function Plan({ paidPlan }: PaidPlansProps) {
   return (
-    <div className={styles.pricingV1Card} style={!paidPlan.isPro ? { backgroundColor: 'var(--white-color)' } : { backgroundColor: '' }}>
-      <div className={styles.pricingV1Badge} style={!paidPlan.isPro ? { backgroundColor: 'var(--white-color)' } : { backgroundColor: '#7d00ff' }}></div>
+    <div
+      className={styles.pricingV1Card}
+      style={
+        !paidPlan.isPro
+          ? { backgroundColor: 'var(--white-color)' }
+          : { backgroundColor: '' }
+      }
+    >
+      <div
+        className={styles.pricingV1Badge}
+        style={
+          !paidPlan.isPro
+            ? { backgroundColor: 'var(--white-color)' }
+            : { backgroundColor: '#7d00ff' }
+        }
+      ></div>
       <div className={styles.upper}>
-        <PTText asTag='h1' size='xl' weight='700' className={styles.headingBox}>{paidPlan.plan}</PTText>
-        <div className={styles.smallDivider} style={paidPlan.isPro ? { background: 'var(--white-color)' } : { background: 'var(--primary-color)' }}></div>
+        <PTText asTag="h1" size="xl" weight="700" className={styles.headingBox}>
+          {paidPlan.plan}
+        </PTText>
+        <div
+          className={styles.smallDivider}
+          style={
+            paidPlan.isPro
+              ? { background: 'var(--white-color)' }
+              : { background: 'var(--primary-color)' }
+          }
+        ></div>
 
         <div className={styles.pricingFeatures}>
           <div className={styles.pricingListItem}>
@@ -43,5 +66,5 @@ export default function Plan({ paidPlan }: PaidPlansProps) {
         <PTButton isMain>{paidPlan.button}</PTButton>
       </div>
     </div>
-  )
+  );
 }

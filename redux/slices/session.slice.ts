@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { User } from '../../interfaces/user.interface'
-import { findLoggedUser, signInUser } from '../actions/session.action'
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { User } from '@/interfaces/user.interface';
+import { findLoggedUser, signInUser } from '../actions/session.action';
 
 export interface SessionState {
   user: User | null;
@@ -12,8 +12,8 @@ export interface SessionState {
 const initialState: SessionState = {
   user: null,
   loading: false,
-  error: undefined
-}
+  error: undefined,
+};
 
 export const sessionSlice = createSlice({
   name: 'session',
@@ -24,17 +24,20 @@ export const sessionSlice = createSlice({
       state.loading = initialState.loading;
       state.error = initialState.error;
       localStorage.removeItem('tkn');
-    }
+    },
   },
   extraReducers(builder) {
     builder.addCase(signInUser.rejected, (state, { payload }) => {
       state.loading = false;
       state.error = payload as string;
     });
-    builder.addCase(findLoggedUser.fulfilled, (state, { payload }: PayloadAction<User>) => {
-      state.user = payload;
-      state.loading = false;
-    });
+    builder.addCase(
+      findLoggedUser.fulfilled,
+      (state, { payload }: PayloadAction<User>) => {
+        state.user = payload;
+        state.loading = false;
+      },
+    );
     builder.addCase(findLoggedUser.pending, (state) => {
       state.loading = true;
     });
@@ -43,7 +46,7 @@ export const sessionSlice = createSlice({
       state.error = err.error.message;
     });
   },
-})
+});
 
 export const { clearSession } = sessionSlice.actions;
-export default sessionSlice.reducer
+export default sessionSlice.reducer;

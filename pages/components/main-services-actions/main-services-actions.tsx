@@ -1,11 +1,10 @@
 import styles from './main-services-actions.module.scss';
 import ServicesActionComponent from './component/main-service-action';
-import PTText from '../../../components/text/pt-text';
+import PTText from '@/components/text/pt-text';
 import { useRouter } from 'next/router';
-import LineDivider from '../../../components/line-divider/line-divider';
+import LineDivider from '@/components/line-divider/line-divider';
 
 export default function MainServicesAction() {
-
   const router = useRouter();
 
   const handleShouldDeclare = () => {
@@ -18,7 +17,9 @@ export default function MainServicesAction() {
 
   return (
     <div className={styles.sectionHome}>
-      <PTText asTag='h2' size='xxxl' weight='700' className={styles.heading}>¿Cuándo y qué debo presentar en materia de Precios de Transferencia?</PTText>
+      <PTText asTag="h2" size="xxxl" weight="700" className={styles.heading}>
+        ¿Cuándo y qué debo presentar en materia de Precios de Transferencia?
+      </PTText>
 
       <div className={styles.featureCards}>
         <ServicesActionComponent
@@ -35,5 +36,5 @@ export default function MainServicesAction() {
       </div>
       <LineDivider />
     </div>
-  )
+  );
 }
