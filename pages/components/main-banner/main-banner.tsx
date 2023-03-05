@@ -19,16 +19,14 @@ export default function MainBanner() {
       </div>
 
       <div className={styles.containerTextBody}>
-        <PTText size="lg" weight="500" className={styles.textBody}>
-          Te ayudamos con todo el proceso de elaboración y presentación de
-          precios de transferencia de la mano de un experto -PT PRO- Tú elige el
-          nivel de acompañamiento que quieras.
+        <PTText size="lg" weight="400" className={styles.textBody}>
+          Te ayudamos con todo el proceso de elaboración y presentación de la declaración de Precios de Transferencia de la mano de un experto -PT-PRO - Tú eliges el nivel de acompañamiento que quieras.
         </PTText>
       </div>
 
       <div className={styles.containerButton}>
         <PTButton size="lg" isMain={false}>
-          Elaborar la declaración de precios de transferencia
+          Elaborar la declaración de Precios de Transferencia
         </PTButton>
       </div>
 

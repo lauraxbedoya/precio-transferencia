@@ -1,24 +1,24 @@
 const items = [
   {
-    label: 'Servicios de precios de transferencia',
+    label: 'Servicios de Precios de Transferencia',
     items: [
-      { label: 'Determinar sus obligaciones de precios de trasnferencia' },
-      { label: 'Elaborar la declaración de precios de transferencia' },
-      { label: 'Asistencia en la presentación de tus obligaciones de precios de trasnferencia' },
+      { label: 'Determinar sus obligaciones de Precios de Transferencia' },
+      { label: 'Elaborar la declaración de Precios de Transferencia' },
+      { label: 'Asistencia en la presentación de tus obligaciones de Precios de Transferenci' },
     ]
   },
   {
     label: 'Actualidad tributaria',
     items: [
-      { label: 'Blog tributario y de precios de trasnferencia' },
+      { label: 'Blog tributario y de Precios de Transferencia' },
     ]
   },
   {
     label: 'Ayuda',
     items: [
       { label: 'Preguntas frecuentes' },
-      { label: 'Normatividad de precios de trasnferencia' },
-      { label: 'Chat PT PRO, acá nos puedes contar en lo que podamos ayudarte' }
+      { label: 'Normatividad de Precios de Transferencia' },
+      { label: 'Chat PT-PRO, acá nos puedes contar en lo que podamos ayudarte' }
     ]
   },
 ]

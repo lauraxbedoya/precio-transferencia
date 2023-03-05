@@ -71,13 +71,12 @@
   color: var(--ternary-color);
   margin-bottom: 17px;
   margin-top: 5px;
+  text-transform: uppercase;
 }
 
 .title {
   color: var(--ternary-color);
   line-height: 23px;
-  letter-spacing: 0;
-  text-transform: uppercase;
 }
 
 .price {
@@ -88,8 +87,6 @@
 .caps {
   color: var(--ternary-color);
   text-align: center;
-  letter-spacing: 0;
-  text-transform: uppercase;
   margin: 15px;
 }
 
@@ -123,6 +120,18 @@
   margin-top: 20px;
 }
 
+.containerTextImportant {
+  display: flex;
+  flex-direction: column;
+  width: 63%;
+  margin-left: auto;
+  margin-right: 22px;
+  box-shadow: 0 6px 12px 0 rgb(89 98 115 / 50%);
+  transition: box-shadow 0.3s;
+  border-radius: 14px;
+  margin-bottom: 28px;
+}
+
 .headingUpBox {
   display: flex;
   height: 40px;
@@ -138,19 +147,19 @@
 .containerTextEnd {
   margin-bottom: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   width: 100%;
 }
 
 .itemsSpan {
-  padding: 13px 20px;
-  margin: 0px 15px;
   border-bottom: none;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border-radius: 10px;
 }
 
-.important {
-  padding: 10px;
+.divImportant {
+  background-color: var(--ternary-color);
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  color: var(--white-color);
 }

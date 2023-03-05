@@ -17,7 +17,7 @@ export default function ProfessionalAccompaniment() {
         </div>
         <div>
           <PTText size="md" weight="500">
-            ¡PT PRO! es un sistema integral que te ofrece la combinación ideal
+            ¡PT-PRO! es un sistema integral que te ofrece la combinación ideal
             entre la automatización y el acompañamiento de un experto.
           </PTText>
         </div>

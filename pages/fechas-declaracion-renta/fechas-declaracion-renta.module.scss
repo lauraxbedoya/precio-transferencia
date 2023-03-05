@@ -1,0 +1,67 @@
+.container {
+  overflow: hidden;
+  padding-top: 3%;
+}
+
+.subContainer {
+  display: flex;
+  margin-right: auto;
+  margin-bottom: 40px;
+  margin-left: auto;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex: 0 1 auto;
+  border-radius: 30px;
+  background-color: var(--white-color);
+  box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
+  transition: box-shadow 0.3s;
+  text-align: center;
+  width: 50%;
+  padding: 33px 45px 29px;
+}
+
+.title {
+  padding: 0 9% 10px;
+}
+
+.containerLogoAndTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.containerForm {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.questionsDivider {
+  min-height: 1px;
+  min-width: 100%;
+  margin-bottom: 20px;
+  background-color: var(--border-input-color);
+}
+
+.divCalendarImage {
+  padding-left: 35px;
+  flex: 1;
+}
+
+.divForm {
+  display: flex;
+  flex-direction: column;
+  text-align-last: left;
+  padding-left: 42px;
+  padding-right: 14px;
+  flex: 3;
+}
+
+.checkboxField {
+  margin: 20px 0;
+}
+
+.divButton {
+  margin: 10px 0;
+}

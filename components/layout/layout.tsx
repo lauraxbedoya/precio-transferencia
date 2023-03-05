@@ -25,21 +25,20 @@ function Layout({ children }: Props) {
       <div className={`${styles.navigation}`}>
         <div className={styles.navImage}>
           <Link href="/">
-            <Image src={logo} height={65} alt="logo" />
+            <Image src={logo} height={70} alt="logo" />
             {user && <span style={{ fontSize: '12px' }}>{user.email}</span>}
           </Link>
         </div>
         <div className={styles.navContainer}>
           <Menubar className="nav-items" model={menuItems} />
-          <span>{user?.name}</span>
           {!user ? (
             <Link href="/sign-in">
-              <PTButton isMain={true} size="sm">
+              <PTButton isMain={true} size="md">
                 Ingresar o Registrarse
               </PTButton>
             </Link>
           ) : (
-            <PTButton isMain={true} onClick={handleLogout} size="sm">
+            <PTButton isMain={true} onClick={handleLogout} size="md">
               Cerrar Sesión
             </PTButton>
           )}

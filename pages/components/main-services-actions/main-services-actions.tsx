@@ -23,13 +23,13 @@ export default function MainServicesAction() {
 
       <div className={styles.featureCards}>
         <ServicesActionComponent
-          titleBox="Verifica si tu compañia está sujeta al régimen de precios de transferencia"
+          titleBox="Verifica si tu compañía está sujeta al régimen de Precios de Transferencia"
           textButton="¡Verifica!"
           onClick={handleShouldDeclare}
         />
 
         <ServicesActionComponent
-          titleBox="Revisa los plazos en los cuales se deben presentar las obligaciones de precios de transferencia de tu compañia"
+          titleBox="Revisa los plazos en los cuales se deben presentar las obligaciones de Precios de Transferencia de tu compañia"
           textButton="¡Revisa!"
           onClick={handleDateDeclare}
         />

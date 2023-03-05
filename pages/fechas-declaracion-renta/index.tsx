@@ -8,6 +8,9 @@ import { User } from '@/interfaces/user.interface';
 import { api } from '@/helpers/api.helper';
 import StatementMaxDateResult from './statement-max-dates';
 import { MaxDate } from '@/interfaces/statement-max-dates.interface';
+import Image from 'next/image';
+import logoCompany from '@/public/logo/logofull.png';
+import calendar from '@/public/calendar.png';
 
 export default function FechasDeclaracionRenta() {
   const [termsConditions, setTermsConditions] = useState(true);
@@ -59,65 +62,78 @@ export default function FechasDeclaracionRenta() {
   };
 
   return (
-    <div className={styles.formRightBlock}>
-      <div className={styles.wForm}>
-        {statemenMaxDate === undefined && (
-          <div className={styles.form2}>
-            <FormDateDeclare
-              textHeader="Último número del NIT*"
-              placeholder="Ingresa el último número del NIT"
-              type="number"
-              min={0}
-              max={9}
-              name="lastNitDigit"
-              onChange={handleInputChange}
-              value={lastNitDigit}
-            />
-            <FormDateDeclare
-              textHeader="Nombre *"
-              placeholder="Ingresa tu nombre"
-              name="name"
-              onChange={handleInputChange}
-              value={formUser?.name}
-            />
-            <FormDateDeclare
-              textHeader="Apellido *"
-              placeholder="Ingresa tu apellido"
-              name="lastName"
-              onChange={handleInputChange}
-              value={formUser?.lastName}
-            />
-            <FormDateDeclare
-              textHeader="Correo electrónico *"
-              placeholder="Ingresa tu email"
-              name="email"
-              onChange={handleInputChange}
-              value={formUser?.email}
-            />
+    <div className={styles.container}>
+      <div className={styles.subContainer}>
+        <div className={styles.containerLogoAndTitle}>
+          <Image src={logoCompany} height={100} alt="logoCompany" />
+          <PTText asTag='h2' size='xl' weight='600' className={styles.title}>¿Ya conoces las fechas para la declaración de renta en éste 2023?</PTText>
+        </div>
 
-            <label className={`${styles.wCheckbox} ${styles.checkboxField}`}>
-              <input
-                type="checkbox"
-                className={styles.wCheckboxInput}
-                checked={termsConditions}
-              />
-              <PTText size="xs" weight="400" className={styles.checkboxLabel}>
-                He leído la política de privacidad de Tributi y acepto el
-                tratamiento de mis datos
-              </PTText>
-            </label>
+        <div className={styles.questionsDivider}></div>
 
-            <PTButton size="md" isMain={false} onClick={handleSubmission}>
-              ¿Cuándo declaro?
-            </PTButton>
+        <div className={styles.containerForm}>
+          <div className={styles.divCalendarImage}>
+            <Image src={calendar} height={200} alt="calendar" />
           </div>
-        )}
-        {statemenMaxDate !== undefined && formUser?.name !== undefined && (
-          <StatementMaxDateResult
-            maxDate={statemenMaxDate.expireDate}
-            name={formUser.name}
-          />
-        )}
+
+          {statemenMaxDate === undefined && (
+            <div className={styles.divForm}>
+              <FormDateDeclare
+                textHeader="Último número del NIT*"
+                placeholder="Ingresa el último número del NIT"
+                type="number"
+                min={0}
+                max={9}
+                name="lastNitDigit"
+                onChange={handleInputChange}
+                value={lastNitDigit}
+              />
+              <FormDateDeclare
+                textHeader="Nombre *"
+                placeholder="Ingresa tu nombre"
+                name="name"
+                onChange={handleInputChange}
+                value={formUser?.name}
+              />
+              <FormDateDeclare
+                textHeader="Apellido *"
+                placeholder="Ingresa tu apellido"
+                name="lastName"
+                onChange={handleInputChange}
+                value={formUser?.lastName}
+              />
+              <FormDateDeclare
+                textHeader="Correo electrónico *"
+                placeholder="Ingresa tu email"
+                name="email"
+                onChange={handleInputChange}
+                value={formUser?.email}
+              />
+
+              <label className={`${styles.wCheckbox} ${styles.checkboxField}`}>
+                <input
+                  type="checkbox"
+                  className={styles.wCheckboxInput}
+                  checked={termsConditions}
+                />
+                <PTText size="xs" weight="400" className={styles.checkboxLabel}>
+                  He leído la política de privacidad de Tributi y acepto el
+                  tratamiento de mis datos
+                </PTText>
+              </label>
+
+              <PTButton size="lg" isMain={false} onClick={handleSubmission} className={styles.divButton}>
+                ¿Cuándo declaro?
+              </PTButton>
+            </div>
+          )}
+          {statemenMaxDate !== undefined && formUser?.name !== undefined && (
+            <StatementMaxDateResult
+              maxDate={statemenMaxDate.expireDate}
+              name={formUser.name}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const companyValues = [
     image: calculadoraImg,
     title: 'Seguro',
     items: [
-      'Garantizamos que tu declaración de precios de trasnferencia cumpla con los requisitos exigidos por la ley Colombiana.',
+      'Garantizamos que tu declaración de Precios de Transferencianferencia cumpla con los requisitos exigidos por la ley Colombiana.',
       'La información que proporcionas está protegida con los más altos estándares de seguridad y está sujeta a una política de seguridad rigurosa (Consultar TERMINOS Y CONDICIONES).',
     ],
   },
@@ -20,7 +20,7 @@ const companyValues = [
     items: [
       'Siempre tendrás a tú disposición acompañamiento personalizado cuando lo requieras.',
       'No requieres de filtros, ni aprobación de propuesta, ni demoras administrativas para acceder a nuestros servicios, con solo dar un par de clicks lo podrás hacer.',
-      'PT PRO lo hace por ti, por lo cual no requieres conocimients de precios de transferencia, nuestro sistema integral te guiará de forma intuitiva durante todo el proceso.',
+      'PT-PRO lo hace por ti, por lo cual no requieres conocimientos de Precios de Transferencia, nuestro sistema integral te guiará de forma intuitiva durante todo el proceso.',
     ],
   },
   {
@@ -36,7 +36,7 @@ export default function CompanyValues() {
       <div className={styles.sectionIntro}>
         <PTText asTag="h2" size="xxxl" weight="700" className={styles.heading}>
           TPTRIP tu mejor opción para preparar la declaración de precios de
-          transferencia.
+          transferencia
         </PTText>
       </div>
       <div className={styles.column4}>

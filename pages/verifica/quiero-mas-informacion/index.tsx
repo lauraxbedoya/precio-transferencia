@@ -3,58 +3,59 @@ import PTText from '@/components/text/pt-text';
 import { decipher, secretKey } from '@/utils/crypto';
 import { ShouldDeclareMessages } from '../components/should-declare-response-message/should-declare-response-message';
 import styles from './result.module.scss';
+import PTButton from '@/components/button/pt-button';
 
 const resultMessages = {
   Message1: {
-    plan: '¡Obtener el informe técnico de TPTRIP sobre las obligaciones de precios de transferencia de mi compañía!',
+    plan: '¡Obtener el informe técnico de TPTRIP sobre las obligaciones de Precios de Transferencia de mi compañía!',
     planItems: [
       {
-        text: 'Tú ingresas la información a nuestra plataforma con las indicaciones de PT PRO (si quieres conocer mayor detalle de la información que debes ingresar puedes consultar en nuestro Chat PT PRO).',
+        text: 'Tú ingresas la información a nuestra plataforma con las indicaciones de PT-PRO (si quieres conocer mayor detalle de la información que debes ingresar puedes consultar en nuestro Chat PT-PRO).',
       },
       {
-        text: 'Chat de ayuda con experto en precios de trasnferencia que resuelve tus dudas generales.',
+        text: 'Chat de ayuda con experto en Precios de Transferencia que resuelve tus dudas generales.',
       },
       {
         text: 'El tiempo de elaboración será a tu ritmo. Si decides detenerte en algún momento tu información quedará guardada y podrás retomar cuando quiras.',
       },
       {
-        text: 'Una vez termines de ingresas y verificar la información requerida, PT PRO te entregará el informe técnico que contiene:',
+        text: 'Una vez termines de ingresar y verificar la información requerida, PT-PRO te entregará el informe técnico que contiene:',
         children: [
-          'Las razones detalladas del por qué sí o no a tu compañía le aplica el régimen de precios de transferencia.',
+          'Las razones detalladas del por qué sí o no a tu compañía le aplica el régimen de Precios de Transferencia.',
           'Las obligaciones que debe cumplir, y una breve descripción de estas.',
           'Los plazos dentro de los cuales se deben presentar estas obligaciones',
           'En caso de que tu compañía solo deba realizar la notificación del informe país por país, PTPRO te indicará cómo hacerlo.',
         ],
       },
       {
-        text: 'El informe técnico será elaborado a partir de la normativa colombiana vigente, lo cuál te dará certeza de las obligaciones que tú compañía debe presentar para dar cumplimiento al régimen de precios de trasnferencia.',
+        text: 'El informe técnico será elaborado a partir de la normativa colombiana vigente, lo cuál te dará certeza de las obligaciones que tú compañía debe presentar para dar cumplimiento al régimen de Precios de Transferencia.',
       },
     ],
     price: '259.',
   },
   Message2: {
-    plan: '¡Obtener el informe técnico de TPTRIP sobre las obligaciones de precios de trasnferencia de mi compañía!',
+    plan: '¡Obtener el informe técnico de TPTRIP sobre las obligaciones de Precios de Transferencia de mi compañía!',
     planItems: [
       {
-        text: 'Tú ingresas la información a nuestra plataforma con las indicaciones de PT PRO (si quieres conocer mayor detalle de la información que debes ingresar puedes consultar en nuestro Chat PT PRO).',
+        text: 'Tú ingresas la información a nuestra plataforma con las indicaciones de PT-PRO (si quieres conocer mayor detalle de la información que debes ingresar puedes consultar en nuestro Chat PT-PRO).',
       },
       {
-        text: 'Chat de ayuda con experto en precios de trasnferencia que resuelve tus dudas generales.',
+        text: 'Chat de ayuda con experto en Precios de Transferencia que resuelve tus dudas generales.',
       },
       {
         text: 'El tiempo de elaboración será a tu ritmo. Si decides detenerte en algún momento tu información quedará guardada y podrás retomar cuando quiras.',
       },
       {
-        text: 'Una vez termines de ingresas y verificar la información requerida, PT PRO te entregará el informe técnico que contiene:',
+        text: 'Una vez termines de ingresas y verificar la información requerida, PT-PRO te entregará el informe técnico que contiene:',
         children: [
-          'Las razones detalladas del por qué sí o no a tu compañía le aplica el régimen de precios de transferencia.',
+          'Las razones detalladas del por qué sí o no a tu compañía le aplica el régimen de Precios de Transferencia.',
           'Las obligaciones que debe cumplir, y una breve descripción de estas.',
           'Los plazos dentro de los cuales se deben presentar estas obligaciones',
           'En caso de que tu compañía solo deba realizar la notificación del informe país por país, PTPRO te indicará cómo hacerlo.',
         ],
       },
       {
-        text: 'El informe técnico será elaborado a partir de la normativa colombiana vigente, lo cuál te dará certeza de las obligaciones que tú compañía debe presentar para dar cumplimiento al régimen de precios de trasnferencia.',
+        text: 'El informe técnico será elaborado a partir de la normativa colombiana vigente, lo cuál te dará certeza de las obligaciones que tú compañía debe presentar para dar cumplimiento al régimen de Precios de Transferencia.',
       },
     ],
     price: '189.',
@@ -97,6 +98,7 @@ export default function Result() {
             ))}
           </ul>
         </div>
+        <PTButton size='lg' isMain>¡Obtener!</PTButton>
       </div>
     </div>
   );

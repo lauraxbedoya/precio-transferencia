@@ -183,8 +183,8 @@ function ObligadosDeclararRenta2023() {
       <div className={styles.conditionsToPayTaxWrapper}>
         <div className={styles.conditionFormContent}>
           <div className={styles.logoHeader}>
-            <Image src={logoCompany} height={50} alt="logoCompany" />
-            <PTText size="md" weight="700" className={styles.formHead}>
+            <Image src={logoCompany} height={90} alt="logoCompany" />
+            <PTText asTag='h1' size="xl" weight="600" className={styles.formHead}>
               ¡Averigua si tu compañía está sujeta al régimen de precios de
               transferencia para el año fiscal 2022!
             </PTText>
