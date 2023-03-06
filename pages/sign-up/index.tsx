@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useAppDispatch } from '@/redux/store';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { api } from '@/helpers/api.helper';
@@ -17,13 +17,17 @@ import PTButton from '@/components/button/pt-button';
 import Link from 'next/link';
 import styles from './sign-up.module.scss';
 import PTInput from '@/components/input/pt-input';
+import { Toast } from 'primereact/toast';
+import { AxiosError } from 'axios';
 
 export default function SignUp() {
+  const toast = useRef<Toast>(null);
   const [values, setValues] = useState({
     email: '',
-    confirmEmail: '',
+    name: '',
+    lastName: '',
     password: '',
-    confirmPassword: '',
+    confirmPassword: undefined,
   });
   const dispatch = useAppDispatch();
   const router = useRouter();
@@ -39,36 +43,54 @@ export default function SignUp() {
   const handleSignUp = async () => {
     if (
       !values.email ||
-      !values.confirmEmail ||
       !values.confirmPassword ||
-      !values.password
+      !values.password ||
+      !values.name ||
+      !values.lastName
     ) {
-      alert('todos los campos son requeridos');
+      toast?.current?.show({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Todos los campos son requeridos',
+      });
     } else {
       // const recaptchaValue = recaptchaRef.current?.getValue();
       // if (recaptchaValue) {
-      if (
-        values.email === values.confirmEmail &&
-        values.password === values.confirmPassword
-      ) {
+      if (values.password === values.confirmPassword) {
         try {
+          const { confirmPassword, ...toBeSent } = values;
           const resp = await api.post('/users', {
-            ...values,
+            ...toBeSent,
             createdFrom: 'sign_up',
           });
-          setValues(resp.data);
-          const { type } = await dispatch(signInUser(values));
-          if (type === 'session/signInUser/fulfilled') {
-            alert('Cuenta creada exitosamente');
-            router.push('/');
+          if (resp.data.id) {
+            const { type } = await dispatch(signInUser(values));
+            if (type === 'session/signInUser/fulfilled') {
+              toast?.current?.show({
+                severity: 'success',
+                summary: 'Felicitaciones',
+                detail: 'Cuenta creada exitosamente',
+              });
+              router.push('/');
+            }
           }
-        } catch (error) {
+        } catch (error: any) {
+          for (const message of error.response.data.message) {
+            toast?.current?.show({
+              severity: 'error',
+              summary: 'Error',
+              detail: message,
+            });
+          }
           console.log(error);
         }
+      } else {
+        toast?.current?.show({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Contraseñas deben coincidir.',
+        });
       }
-      // else {
-      //   alert('falta no soy un robot')
-      // }
       // }
     }
   };
@@ -79,7 +101,11 @@ export default function SignUp() {
     const { type } = await dispatch(signInGoogleUser(result.user));
     if (type === 'session/signInGoogleUser/fulfilled') {
       router.push('/');
-      alert('Cuenta creada exitosamente con google');
+      toast?.current?.show({
+        severity: 'success',
+        summary: 'Felicitaciones',
+        detail: 'Cuenta creada exitosamente con google.',
+      });
     }
   };
 
@@ -89,6 +115,7 @@ export default function SignUp() {
 
   return (
     <div className={styles.container}>
+      <Toast ref={toast} />
       <div className={styles.cardContent}>
         <div className={styles.containerClose}>
           <Image src={logoCompany} height={130} alt="logoCompany" />
@@ -125,21 +152,30 @@ export default function SignUp() {
           <div className={styles.signUpWithForm}>
             <PTInput
               className={styles.inputs}
+              name="name"
+              type="lastName"
+              value={values.name}
+              onChange={handleInputChange}
+              placeholder="Nombre"
+              label="Nombre"
+            />
+            <PTInput
+              className={styles.inputs}
+              name="lastName"
+              type="lastName"
+              value={values.lastName}
+              onChange={handleInputChange}
+              placeholder="Apellido"
+              label="Apellido"
+            />
+            <PTInput
+              className={styles.inputs}
               name="email"
               type="email"
               value={values.email}
               onChange={handleInputChange}
               placeholder="Email"
               label="Email"
-            />
-            <PTInput
-              className={styles.inputs}
-              name="confirmEmail"
-              type="email"
-              value={values.confirmEmail}
-              onChange={handleInputChange}
-              placeholder="Ingresa tú email de nuevo"
-              label="Ingresa tú email de nuevo"
             />
             <PTInput
               className={styles.inputs}

@@ -142,8 +142,7 @@ function ObligadosDeclararRenta2023() {
       }
     }
   };
-  // MESSAGE1 http://localhost:8080/verifica/quiero-mas-informacion?response=1830262634323067
-  // MESSAGE2 http://localhost:8080/verifica/quiero-mas-informacion?response=1830262634323064
+
   const handleGetMoreInformation = () => {
     const myCipher = cipher(secretKey);
     const response = myCipher(shouldDeclareResponse);
@@ -184,7 +183,12 @@ function ObligadosDeclararRenta2023() {
         <div className={styles.conditionFormContent}>
           <div className={styles.logoHeader}>
             <Image src={logoCompany} height={90} alt="logoCompany" />
-            <PTText asTag='h1' size="xl" weight="600" className={styles.formHead}>
+            <PTText
+              asTag="h1"
+              size="xl"
+              weight="600"
+              className={styles.formHead}
+            >
               ¡Averigua si tu compañía está sujeta al régimen de precios de
               transferencia para el año fiscal 2022!
             </PTText>

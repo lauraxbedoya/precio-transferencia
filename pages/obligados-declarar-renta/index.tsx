@@ -4,7 +4,7 @@ import logo from '@/public/logopagina.png';
 import clockImage from '@/public/clock-image.png';
 import InputQuestion from './components/input/input-question';
 import PTText from '@/components/text/pt-text';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import FormQuestionShouldDeclare from './components/form/form-question-should-declare';
 import { api } from '@/helpers/api.helper';
 import {
@@ -14,8 +14,10 @@ import {
 import PTButton from '@/components/button/pt-button';
 import { useAppSelector } from '@/redux/store';
 import { User } from '@/interfaces/user.interface';
+import { Toast } from 'primereact/toast';
 
 function ObligadosDeclararRenta() {
+  const toast = useRef<Toast>(null);
   const [termsConditions, setTermsConditions] = useState(true);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [questionsToShow, setQuestionsToShow] = useState<Question[]>([]);
@@ -113,23 +115,49 @@ function ObligadosDeclararRenta() {
   const handleSubmitShouldDeclare = async () => {
     const answer = answers.find((ans) => ans.answer);
     if (!answer) {
-      alert('Debe ingresar al menos una respuesta');
-    } else {
-      if (!formUser?.email) {
-        alert('Debe ingresar un correo electrónico');
-      } else {
-        try {
-          const resp = await api.post<Answer>(
-            'should-declare/create-submission',
-            { user: { ...formUser, createdFrom: 'should_declare' }, answers },
-          );
-          if (resp) {
-            alert('Enviado correctamente');
-          }
-        } catch (error) {
-          console.log(error);
-        }
+      toast?.current?.show({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Debe ingresar al menos una respuesta',
+      });
+      return;
+    }
+    if (!formUser?.email) {
+      toast?.current?.show({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Debe ingresar un correo electrónico',
+      });
+      return;
+    }
+    if (!termsConditions) {
+      toast?.current?.show({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Debe aceptar los términos y condiciones',
+      });
+      return;
+    }
+    try {
+      const resp = await api.post<Answer>('should-declare/create-submission', {
+        user: { ...formUser, createdFrom: 'should_declare' },
+        answers,
+      });
+      if (resp) {
+        toast?.current?.show({
+          severity: 'success',
+          summary: 'Felicitaciones',
+          detail: 'Enviado correctamente',
+        });
       }
+    } catch (error) {
+      console.log(error);
+      toast?.current?.show({
+        severity: 'error',
+        summary: 'Error',
+        detail:
+          'Algo Inesperado ha ocurrido, por favor comuniquese con el administrador',
+      });
     }
   };
 
@@ -158,6 +186,7 @@ function ObligadosDeclararRenta() {
 
   return (
     <div className={styles.overflow}>
+      <Toast ref={toast} />
       <div className={styles.conditionsToPayTaxWrapper}>
         <div className={styles.conditionFormContent}>
           <div className={styles.logoHeader}>
@@ -211,6 +240,7 @@ function ObligadosDeclararRenta() {
             <input
               type="checkbox"
               className={styles.wCheckboxInput}
+              onChange={(e) => setTermsConditions(e.target.checked)}
               checked={termsConditions}
             />
             <PTText size="xs" weight="400" className={styles.checkboxLabel}>

@@ -1,7 +1,7 @@
 import styles from './fechas-declaracion-renta.module.scss';
 import FormDateDeclare from './components/form/form-date-declare';
 import PTText from '@/components/text/pt-text';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import PTButton from '@/components/button/pt-button';
 import { useAppSelector } from '@/redux/store';
 import { User } from '@/interfaces/user.interface';
@@ -11,8 +11,10 @@ import { MaxDate } from '@/interfaces/statement-max-dates.interface';
 import Image from 'next/image';
 import logoCompany from '@/public/logo/logofull.png';
 import calendar from '@/public/calendar.png';
+import { Toast } from 'primereact/toast';
 
 export default function FechasDeclaracionRenta() {
+  const toast = useRef<Toast>(null);
   const [termsConditions, setTermsConditions] = useState(true);
   const { user } = useAppSelector((state) => state.session);
   const [formUser, setFormUser] = useState<Partial<User> | null>(user);
@@ -51,22 +53,37 @@ export default function FechasDeclaracionRenta() {
       !formUser.email ||
       !lastNitDigit
     ) {
-      alert('Todos los campos son requeridos');
-    } else {
-      const resp = await api.post('fechas-declaracion-renta', {
-        user: { ...formUser, createdFrom: 'date_declare' },
-        lastNITDigit: lastNitDigit,
+      toast?.current?.show({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Todos los campos son requeridos',
       });
-      setStatemenMaxDate(resp.data);
+      return;
     }
+    if (!termsConditions) {
+      toast?.current?.show({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Debes aceptar terminos y condiciones',
+      });
+      return;
+    }
+    const resp = await api.post('fechas-declaracion-renta', {
+      user: { ...formUser, createdFrom: 'date_declare' },
+      lastNITDigit: lastNitDigit,
+    });
+    setStatemenMaxDate(resp.data);
   };
 
   return (
     <div className={styles.container}>
+      <Toast ref={toast} />
       <div className={styles.subContainer}>
         <div className={styles.containerLogoAndTitle}>
           <Image src={logoCompany} height={100} alt="logoCompany" />
-          <PTText asTag='h2' size='xl' weight='600' className={styles.title}>¿Ya conoces las fechas para la declaración de renta en éste 2023?</PTText>
+          <PTText asTag="h2" size="xl" weight="600" className={styles.title}>
+            ¿Ya conoces las fechas para la declaración de renta en éste 2023?
+          </PTText>
         </div>
 
         <div className={styles.questionsDivider}></div>
@@ -122,7 +139,12 @@ export default function FechasDeclaracionRenta() {
                 </PTText>
               </label>
 
-              <PTButton size="lg" isMain={false} onClick={handleSubmission} className={styles.divButton}>
+              <PTButton
+                size="lg"
+                isMain={false}
+                onClick={handleSubmission}
+                className={styles.divButton}
+              >
                 ¿Cuándo declaro?
               </PTButton>
             </div>

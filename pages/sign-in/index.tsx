@@ -17,11 +17,13 @@ import Link from 'next/link';
 import PTText from '@/components/text/pt-text';
 import PTInput from '@/components/input/pt-input';
 import PTButton from '@/components/button/pt-button';
+import { Toast } from 'primereact/toast';
 
 export default function SignIn() {
+  const toast = useRef<Toast>(null);
   const [values, setValues] = useState({
-    email: 'sasha.maria@gmail.com',
-    password: 'sasha',
+    email: '',
+    password: '',
   });
   const [isUserLogged, setIsUserLogged] = useState(true);
   const router = useRouter();
@@ -48,19 +50,21 @@ export default function SignIn() {
 
   const handleSignIn = async () => {
     if (!values.email || !values.password) {
-      alert('Todos los campos son requeridos');
+      toast?.current?.show({
+        severity: 'error',
+        summary: 'Todos los campos son requeridos',
+      });
     } else {
       // const recaptchaValue = recaptchaRef.current?.getValue();
       // if (recaptchaValue) {
       const { type } = await dispatch(signInUser(values));
       if (type === 'session/signInUser/fulfilled') {
+        toast?.current?.show({
+          severity: 'success',
+          summary: 'Logado correctamente',
+        });
         router.push('/');
-        alert('Logado correctamente');
       }
-      // }
-      // else {
-      //   alert('falta no soy un robot')
-      // }
     }
   };
 
@@ -73,8 +77,11 @@ export default function SignIn() {
       );
       const { type } = await dispatch(signInGoogleUser(result.user));
       if (type === 'session/signInGoogleUser/fulfilled') {
+        toast?.current?.show({
+          severity: 'success',
+          summary: 'Logado correctamente',
+        });
         router.push('/');
-        alert('Logado correctamente con google');
       }
     } catch (error) {
       console.log(error);
@@ -100,6 +107,7 @@ export default function SignIn() {
 
   return (
     <div className={styles.container}>
+      <Toast ref={toast} />
       <div className={styles.cardContent}>
         <div className={styles.containerClose}>
           <Image src={logoCompany} height={130} alt="logoCompany" />

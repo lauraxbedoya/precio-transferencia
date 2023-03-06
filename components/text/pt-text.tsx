@@ -1,10 +1,11 @@
-import { HTMLAttributes, ReactNode, useEffect, useState } from "react";
+import { HTMLAttributes, ReactNode, useEffect, useState } from 'react';
 import styles from './text.module.scss';
 
-export interface PTTextProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'children'> {
+export interface PTTextProps
+  extends Omit<HTMLAttributes<HTMLSpanElement>, 'children'> {
   children: string | ReactNode;
-  weight: '400' | '500' | '600' | '700';
-  size: 'xxxl' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'xxs' | 'xxxs';
+  weight?: '400' | '500' | '600' | '700';
+  size?: 'xxxl' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'xxs' | 'xxxs';
   asTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
@@ -15,7 +16,6 @@ export default function PTText({
   asTag,
   ...props
 }: PTTextProps) {
-
   const [customSizeClass, setCustomSizeClass] = useState('');
   const [customWeightClass, setCustomWeightClass] = useState('');
 
@@ -23,62 +23,61 @@ export default function PTText({
     let styleClass: string = '';
     switch (size) {
       case 'xxxl':
-        styleClass = styles.textXxxl
+        styleClass = styles.textXxxl;
         break;
       case 'xxl':
-        styleClass = styles.textXxl
+        styleClass = styles.textXxl;
         break;
       case 'xl':
-        styleClass = styles.textXl
+        styleClass = styles.textXl;
         break;
       case 'md':
-        styleClass = styles.textMd
+        styleClass = styles.textMd;
         break;
       case 'lg':
-        styleClass = styles.textLg
+        styleClass = styles.textLg;
         break;
       case 'sm':
-        styleClass = styles.textSm
+        styleClass = styles.textSm;
         break;
       case 'xs':
-        styleClass = styles.textXs
+        styleClass = styles.textXs;
         break;
       case 'xxs':
-        styleClass = styles.textXxs
+        styleClass = styles.textXxs;
         break;
       case 'xxxs':
-        styleClass = styles.textXxxs
+        styleClass = styles.textXxxs;
       default:
-        break
+        break;
     }
     setCustomSizeClass(styleClass);
-  }
+  };
 
   const setWeightStyles = () => {
     let styleClass: string = '';
     switch (weight) {
       case '400':
-        styleClass = styles.textW400
+        styleClass = styles.textW400;
         break;
       case '500':
-        styleClass = styles.textW500
+        styleClass = styles.textW500;
         break;
       case '600':
-        styleClass = styles.textW600
+        styleClass = styles.textW600;
         break;
       case '700':
-        styleClass = styles.textW700
+        styleClass = styles.textW700;
       default:
-        break
+        break;
     }
     setCustomWeightClass(styleClass);
-  }
+  };
 
   useEffect(setWeightStyles, [weight]);
   useEffect(setSizeStyles, [size]);
 
   const classes = `${styles.mainText} ${customWeightClass} ${customSizeClass} ${props.className}`;
-
 
   return (
     <>
@@ -89,13 +88,11 @@ export default function PTText({
       {asTag === 'h5' && <h5 className={classes}>{children}</h5>}
       {asTag === 'h6' && <h6 className={classes}>{children}</h6>}
 
-      {!asTag &&
-        <span
-          {...props}
-          className={classes}
-        >{children}
+      {!asTag && (
+        <span {...props} className={classes}>
+          {children}
         </span>
-      }
+      )}
     </>
-  )
+  );
 }

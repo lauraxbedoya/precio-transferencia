@@ -10,6 +10,7 @@ import useLoggedUser from '@/hooks/use-logged-user';
 import menuItems from './menu-items';
 import { useAppSelector } from '@/redux/store';
 import Link from 'next/link';
+import PTText from '../text/pt-text';
 
 interface Props {
   children: JSX.Element;
@@ -26,11 +27,13 @@ function Layout({ children }: Props) {
         <div className={styles.navImage}>
           <Link href="/">
             <Image src={logo} height={70} alt="logo" />
-            {user && <span style={{ fontSize: '12px' }}>{user.email}</span>}
           </Link>
         </div>
         <div className={styles.navContainer}>
           <Menubar className="nav-items" model={menuItems} />
+          <PTText size="xs" weight="500" style={{ marginRight: '1.2rem' }}>
+            {user?.name ?? ''}
+          </PTText>
           {!user ? (
             <Link href="/sign-in">
               <PTButton isMain={true} size="md">
