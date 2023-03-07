@@ -4,7 +4,7 @@ import styles from './pt-button.module.scss';
 
 
 export interface PTButtonProps extends ButtonProps {
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   color?: 'primary' | 'secondary';
   isMain: boolean;
 }
@@ -33,6 +33,9 @@ export default function PTButton({
         break;
       case 'xl':
         styleClass = styles.buttonXl
+        break;
+      case 'xxl':
+        styleClass = styles.buttonXxl
       default:
         break
     }

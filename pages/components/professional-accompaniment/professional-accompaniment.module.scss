@@ -6,11 +6,12 @@
   margin: 40px;
   border-radius: 10px;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  background: linear-gradient(90deg,var(--primary-color) 30%, var(--secondary-color)100%);
 }
 
-.containerImage {
-  display: flex;
+.containerImg {
   margin-right: 40px;
+  margin-top: 40px;
 }
 
 .containerInfo {
@@ -19,19 +20,4 @@
   width: 50%;
   align-items: flex-start;
   margin-left: 40px;
-}
-
-.containerTitle {
-  margin: 12px 0px;
-}
-
-.dividerCurves {
-  width: 100%;
-  height: 100px;
-  margin-top: 0;
-  background-position: 50% 50%;
-  -webkit-transform: translate3d(0,0,200px);
-  transform: translate3d(0,0,200px);
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
 }

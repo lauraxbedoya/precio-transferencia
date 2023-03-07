@@ -1,33 +1,12 @@
-.featureCard {
-  display: flex;
+.containerCards {
   margin-right: 15px;
   margin-left: 15px;
-  flex-direction: column;
   border-radius: 10px;
-  -webkit-transition: box-shadow .3s;
-  transition: .2s,box-shadow .3s;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 232px;
-  width: 424px;
+  transition: 0.2s, box-shadow 0.3s;
+  height: auto;
+  width: 440px;
   padding: 2rem;
-}
-
-.left {
-  margin-bottom: 40px;
-  box-shadow: 0 0 28px 1px rgb(0 88 88 / 13%);
-  text-align: left;
-}
-
-.declaration {
-  padding: 20px 15px 5px;
-}
-
-.container {
   background-color: var(--ternary-color);
-}
-
-.moveupFeatureIcon {
   display: flex;
   margin-top: 17px;
   flex-direction: column;
@@ -37,33 +16,15 @@
 
 .headingBox {
   display: flex;
-  margin-top: 0;
-  margin-bottom: 20px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  line-height: 28px;
-  text-align: center;
-}
-
-.white {
+  margin-bottom: 23px;
   color: var(--white-color);
 }
 
-.centerAlign {
-  margin-bottom: 20px;
-  font-family: 'Nunito Sans',sans-serif;
-  text-align: center;
+.button {
+  margin-bottom: 8px;
 }
 
-.textGrey {
-  line-height: 20px;
-  letter-spacing: 0;
-}
-
-.featureCard:hover {
+.containerCards:hover {
   box-shadow: 0 15px 30px 0 rgb(89 98 115 / 15%);
-  -webkit-transform: translate(0,-4px);
-  -ms-transform: translate(0,-4px);
   transform: translate(0,-4px);
 }

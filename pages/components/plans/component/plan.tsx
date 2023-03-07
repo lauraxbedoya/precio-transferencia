@@ -19,7 +19,7 @@ export default function Plan({ paidPlan }: PaidPlansProps) {
       style={
         !paidPlan.isPro
           ? { backgroundColor: 'var(--white-color)' }
-          : { backgroundColor: '' }
+          : { backgroundColor: 'var(--primary-color)' }
       }
     >
       <div
@@ -27,7 +27,7 @@ export default function Plan({ paidPlan }: PaidPlansProps) {
         style={
           !paidPlan.isPro
             ? { backgroundColor: 'var(--white-color)' }
-            : { backgroundColor: '#7d00ff' }
+            : { backgroundColor: 'var(--ternary-color)' }
         }
       ></div>
       <div className={styles.upper}>
@@ -63,7 +63,7 @@ export default function Plan({ paidPlan }: PaidPlansProps) {
           <span className={styles.moveUpCents}>000</span>
         </div>
 
-        <PTButton isMain>{paidPlan.button}</PTButton>
+        <PTButton isMain className={`${paidPlan.isPro ? 'button' : ''}`}>{paidPlan.button}</PTButton>
       </div>
     </div>
   );

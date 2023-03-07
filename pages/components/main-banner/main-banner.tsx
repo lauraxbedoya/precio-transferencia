@@ -6,7 +6,7 @@ export default function MainBanner() {
   return (
     <div className={styles.container}>
       <div className={styles.containerVideoAndTitle}>
-        <PTText asTag="h1" size="xxxl" weight="700" className={styles.heading}>
+        <PTText asTag="h1" size="xxxl" weight="700" className={styles.header}>
           Preparación de la declaración de Precios de Transferencia de manera
           confiable, ágil y sin complicaciones
         </PTText>
@@ -18,8 +18,8 @@ export default function MainBanner() {
         ></iframe>
       </div>
 
-      <div className={styles.containerTextBody}>
-        <PTText size="lg" weight="400" className={styles.textBody}>
+      <div className={styles.containerTextBlock}>
+        <PTText size="xl" weight="500" className={styles.textBlock}>
           Te ayudamos con todo el proceso de elaboración y presentación de la
           declaración de precios de transferencia de la mano de un experto - PT
           PRO - Tú eliges el nivel de acompañamiento que quieras.
@@ -27,7 +27,7 @@ export default function MainBanner() {
       </div>
 
       <div className={styles.containerButton}>
-        <PTButton size="lg" isMain={false}>
+        <PTButton size="xl" isMain={false}>
           Elaborar la declaración de Precios de Transferencia
         </PTButton>
       </div>

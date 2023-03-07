@@ -15,20 +15,21 @@ export default function ServicesActionComponent({
 }: servicesActionProps) {
   return (
     <div
-      className={`${styles.featureCard} ${styles.declaration} ${styles.container} ${styles.moveupFeatureIcon}`}
+      className={styles.containerCards}
     >
       <PTText
-        size="md"
+        size="lg"
         weight="500"
-        className={`${styles.headingBox} ${styles.white}`}
+        className={styles.headingBox}
       >
         {titleBox}
       </PTText>
+
       <PTButton
-        size="lg"
+        size="xl"
         isMain={false}
         onClick={onClick}
-        style={{ marginBottom: '8px' }}
+        className={styles.button}
       >
         {textButton}
       </PTButton>

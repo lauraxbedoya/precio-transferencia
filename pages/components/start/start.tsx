@@ -15,7 +15,7 @@ export default function Start() {
           ¡Tu equipo de TPTRIP está listo!.
         </PTText>
         <div className={styles.ctaBotonEmpieza}>
-          <PTButton size="xl" isMain={false}>
+          <PTButton size="xxl" isMain={false}>
             ¡Comencemos!
           </PTButton>
         </div>

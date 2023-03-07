@@ -16,8 +16,8 @@ export default function MainServicesAction() {
   };
 
   return (
-    <div className={styles.sectionHome}>
-      <PTText asTag="h2" size="xxxl" weight="700" className={styles.heading}>
+    <div className={styles.container}>
+      <PTText asTag="h2" size="xxxl" weight="700" className={styles.header}>
         ¿Cuándo y qué debo presentar en materia de Precios de Transferencia?
       </PTText>
 
