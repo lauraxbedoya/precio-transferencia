@@ -1,5 +1,5 @@
+import PTInput from '@/components/common/input/pt-input';
 import { InputHTMLAttributes } from 'react';
-import PTInput from '@/components/input/pt-input';
 
 export interface DateDeclareProps
   extends InputHTMLAttributes<HTMLInputElement> {

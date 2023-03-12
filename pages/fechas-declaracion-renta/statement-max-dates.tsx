@@ -1,7 +1,7 @@
-import PTButton from '@/components/button/pt-button';
-import PTText from '@/components/text/pt-text';
+import PTButton from '@/components/common/button/pt-button';
 import styles from './statement-max-dates.module.scss';
 import { formatDate } from '@/utils/date.util';
+import PTText from '@/components/common/text/pt-text';
 
 export interface MaxDateProps {
   maxDate: string;

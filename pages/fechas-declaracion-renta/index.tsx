@@ -1,8 +1,7 @@
 import styles from './fechas-declaracion-renta.module.scss';
 import FormDateDeclare from './components/form/form-date-declare';
-import PTText from '@/components/text/pt-text';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import PTButton from '@/components/button/pt-button';
+import PTButton from '@/components/common/button/pt-button';
 import { useAppSelector } from '@/redux/store';
 import { User } from '@/interfaces/user.interface';
 import { api } from '@/helpers/api.helper';
@@ -12,8 +11,8 @@ import Image from 'next/image';
 import logoCompany from '@/public/logo/logofull.png';
 import calendar from '@/public/calendar.png';
 import { Toast } from 'primereact/toast';
-import Loading from '@/components/loading/loading';
-
+import Loading from '@/components/common/loading/loading';
+import PTText from '@/components/common/text/pt-text';
 
 export default function FechasDeclaracionRenta() {
   const toast = useRef<Toast>(null);
@@ -88,7 +87,8 @@ export default function FechasDeclaracionRenta() {
         <div className={styles.containerLogoAndTitle}>
           <Image src={logoCompany} height={100} alt="logoCompany" />
           <PTText asTag="h2" size="xl" weight="600" className={styles.title}>
-            ¿Ya conoces las fechas para la declaración informativa de Precios de Transferencia en éste 2023?
+            ¿Ya conoces las fechas para la declaración informativa de Precios de
+            Transferencia en éste 2023?
           </PTText>
         </div>
 

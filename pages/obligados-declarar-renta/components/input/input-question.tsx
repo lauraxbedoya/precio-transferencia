@@ -1,6 +1,6 @@
-import PTText from '@/components/text/pt-text';
 import styles from './input-question.module.scss';
 import { InputHTMLAttributes } from 'react';
+import PTText from '@/components/common/text/pt-text';
 
 export interface InputQuestionProps
   extends InputHTMLAttributes<HTMLInputElement> {

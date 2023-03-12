@@ -14,12 +14,11 @@ import styles from './sign-in.module.scss';
 import Image from 'next/image';
 import logoCompany from '@/public/logo/LogoTPTrip.png';
 import Link from 'next/link';
-import PTText from '@/components/text/pt-text';
-import PTInput from '@/components/input/pt-input';
-import PTButton from '@/components/button/pt-button';
+import PTButton from '@/components/common/button/pt-button';
 import { Toast } from 'primereact/toast';
-import Loading from '@/components/loading/loading';
-
+import Loading from '@/components/common/loading/loading';
+import PTText from '@/components/common/text/pt-text';
+import PTInput from '@/components/common/input/pt-input';
 
 export default function SignIn() {
   const toast = useRef<Toast>(null);
@@ -35,7 +34,6 @@ export default function SignIn() {
   // const [gUser, gLoading] = useAuthState(auth);
   const recaptchaRef = React.createRef<ReCAPTCHA>();
   const [loading, setLoading] = useState(false);
-
 
   const checkIsUserLogged = () => {
     const token = localStorage.getItem('tkn');
@@ -95,7 +93,7 @@ export default function SignIn() {
     }
   };
 
-  useEffect(checkIsUserLogged, [router.pathname]);
+  useEffect(checkIsUserLogged, [router, router.pathname]);
 
   useEffect(() => {
     if (!loading && user) {

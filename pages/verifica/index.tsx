@@ -1,20 +1,25 @@
 import Image from 'next/image';
 import styles from './should-declare.module.scss';
 import logoCompany from '@/public//logo/logofull.png';
-import PTText from '@/components/text/pt-text';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import FormQuestionShouldDeclare from './components/form/form-question-should-declare';
+import FormQuestionShouldDeclare from '../../components/verifica/form/form-question-should-declare';
 import { api } from '@/helpers/api.helper';
-import { Answer, Question, } from '@/interfaces/should-declare-question.interface';
+import {
+  Answer,
+  Question,
+} from '@/interfaces/should-declare-question.interface';
 import { useAppSelector } from '@/redux/store';
 import { User } from '@/interfaces/user.interface';
 import Router from 'next/router';
-import UserInfoShouldDeclare from './components/user-info';
-import ShouldDeclareResponseMessage, { ShouldDeclareMessages } from './components/should-declare-response-message/should-declare-response-message';
 import { cipher, secretKey } from '@/utils/crypto';
 import { Toast } from 'primereact/toast';
-import Loading from '@/components/loading/loading';
 import consultImage from '@/public/consult.png';
+import Loading from '@/components/common/loading/loading';
+import PTText from '@/components/common/text/pt-text';
+import ShouldDeclareResponseMessage, {
+  ShouldDeclareMessages,
+} from '@/components/verifica/should-declare-response-message/should-declare-response-message';
+import UserInfoShouldDeclare from '@/components/verifica/user-info';
 
 function ObligadosDeclararRenta2023() {
   const toast = useRef<Toast>(null);
@@ -28,7 +33,6 @@ function ObligadosDeclararRenta2023() {
   const [shouldDeclareResponse, setShouldDeclareResponse] =
     useState<ShouldDeclareMessages>();
   const [loading, setLoading] = useState(false);
-
 
   const getAllQuestions = async () => {
     try {
@@ -157,10 +161,7 @@ function ObligadosDeclararRenta2023() {
     const myCipher = cipher(secretKey);
     const response = myCipher(shouldDeclareResponse);
     Router.push({
-      pathname: '/verifica/quiero-mas-informacion',
-      query: {
-        response,
-      },
+      pathname: `/verifica/quiero-mas-informacion/${response}`,
     });
   };
 
@@ -170,9 +171,9 @@ function ObligadosDeclararRenta2023() {
         severity: 'error',
         summary: 'Error',
         detail: 'El NIT debe contener 9 dígitos',
-        life: 2000
+        life: 2000,
       });
-      return
+      return;
     }
     if (e.target.name === 'nit') {
       setNit(e.target.value);

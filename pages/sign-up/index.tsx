@@ -10,17 +10,16 @@ import {
 } from 'firebase/auth';
 import { signInGoogleUser, signInUser } from '@/redux/actions/session.action';
 import { auth } from '@/utils/firebase';
-import PTText from '@/components/text/pt-text';
 import Image from 'next/image';
 import logoCompany from '@/public/logo/LogoTPTrip.png';
-import PTButton from '@/components/button/pt-button';
+import PTButton from '@/components/common/button/pt-button';
 import Link from 'next/link';
 import styles from './sign-up.module.scss';
-import PTInput from '@/components/input/pt-input';
 import { Toast } from 'primereact/toast';
 import { AxiosError } from 'axios';
-import Loading from '@/components/loading/loading';
-
+import Loading from '@/components/common/loading/loading';
+import PTText from '@/components/common/text/pt-text';
+import PTInput from '@/components/common/input/pt-input';
 
 export default function SignUp() {
   const toast = useRef<Toast>(null);

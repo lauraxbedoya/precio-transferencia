@@ -1,11 +1,9 @@
-import Benefits from "./benefits/benefits";
-import CompanyValues from "./company-value/company-values";
-import FrequentlyQuestions from "./frequently-questions/frequently-questions";
-import MainBanner from "./main-banner/main-banner";
-import MainServicesAction from "./main-services-actions/main-services-actions";
-import Plans from "./plans/plans";
-import ProfessionalAccompaniment from "./professional-accompaniment/professional-accompaniment";
-import Start from "./start/start";
+import CompanyValues from '@/components/company-value/company-values';
+import MainBanner from '@/components/main-banner/main-banner';
+import MainServicesAction from '@/components/main-services-actions/main-services-actions';
+import Plans from '@/components/plans/plans';
+import ProfessionalAccompaniment from '@/components/professional-accompaniment/professional-accompaniment';
+import Start from '@/components/start/start';
 
 export default function LandingPage() {
   return (
@@ -19,5 +17,5 @@ export default function LandingPage() {
       {/* <Benefits /> */}
       <Start />
     </div>
-  )
+  );
 }

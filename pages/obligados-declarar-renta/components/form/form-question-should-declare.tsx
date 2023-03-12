@@ -2,8 +2,9 @@ import Image from 'next/image';
 import { Question } from '@/interfaces/should-declare-question.interface';
 import styles from './form-question.module.scss';
 import iconQuestions from '@/public/form-should-declare/question-icon.png';
-import PTText from '@/components/text/pt-text';
 import { memo } from 'react';
+import PTText from '@/components/common/text/pt-text';
+import dynamic from 'next/dynamic';
 
 export interface FormQuestionProps {
   question: Question;
@@ -59,4 +60,6 @@ const FormQuestionShouldDeclare = memo(
 
 FormQuestionShouldDeclare.displayName = 'FormQuestionShouldDeclare';
 
-export default FormQuestionShouldDeclare;
+export default dynamic(() => Promise.resolve(FormQuestionShouldDeclare), {
+  ssr: false,
+});

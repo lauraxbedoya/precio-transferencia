@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { TabView, TabPanel } from 'primereact/tabview';
 import { useRef, useState } from 'react';
-import FormTabs from '@/components/forms-tabs/form-tabs';
+import FormTabs from '@/components/common/forms-tabs/form-tabs';
 import { Toast } from 'primereact/toast';
 
 export default function FormTabView() {

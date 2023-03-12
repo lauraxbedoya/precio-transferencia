@@ -1,9 +1,8 @@
 import Image from 'next/image';
 import styles from './should-declare.module.scss';
-import logo from '@/public/logopagina.png';
+// import logo from '@/public/logopagina.png';
 import clockImage from '@/public/clock-image.png';
 import InputQuestion from './components/input/input-question';
-import PTText from '@/components/text/pt-text';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import FormQuestionShouldDeclare from './components/form/form-question-should-declare';
 import { api } from '@/helpers/api.helper';
@@ -11,10 +10,11 @@ import {
   Answer,
   Question,
 } from '@/interfaces/should-declare-question.interface';
-import PTButton from '@/components/button/pt-button';
+import PTButton from '@/components/common/button/pt-button';
 import { useAppSelector } from '@/redux/store';
 import { User } from '@/interfaces/user.interface';
 import { Toast } from 'primereact/toast';
+import PTText from '@/components/common/text/pt-text';
 
 function ObligadosDeclararRenta() {
   const toast = useRef<Toast>(null);
@@ -189,9 +189,9 @@ function ObligadosDeclararRenta() {
       <Toast ref={toast} />
       <div className={styles.conditionsToPayTaxWrapper}>
         <div className={styles.conditionFormContent}>
-          <div className={styles.logoHeader}>
+          {/* <div className={styles.logoHeader}>
             <Image src={logo} width={250} height={60} alt="logo" />
-          </div>
+          </div> */}
           <Image src={clockImage} className={styles.clockImage} alt="clock" />
           <PTText size="md" weight="700" className={styles.formHead}>
             ¡Conoce si debes declarar renta en el 2023!
