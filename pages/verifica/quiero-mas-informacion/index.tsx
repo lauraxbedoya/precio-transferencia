@@ -4,6 +4,9 @@ import { decipher, secretKey } from '@/utils/crypto';
 import { ShouldDeclareMessages } from '../components/should-declare-response-message/should-declare-response-message';
 import styles from './result.module.scss';
 import PTButton from '@/components/button/pt-button';
+import Image from 'next/image';
+import imageConfigure from '@/public/goal.png';
+
 
 const resultMessages = {
   Message1: {
@@ -71,6 +74,12 @@ export default function Result() {
   return (
     <div className={styles.container}>
       <div className={styles.subContainer}>
+        <div className={styles.pricingV1Badge}>
+          <>
+            <Image src={imageConfigure} alt="configure" height={32} />
+            <PTText size='xxxs' weight='500'>Recomendado</PTText>
+          </>
+        </div>
         <div className={styles.plan}>
           <PTText asTag="h1" size="xxl" weight="600">{resultMessages[resultMessage].plan}</PTText>
         </div>

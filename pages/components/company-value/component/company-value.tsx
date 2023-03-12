@@ -17,8 +17,7 @@ export default function CompanyValue({ companyValue }: CompanyValueProps) {
         <Image
           src={companyValue.image}
           className={styles.images}
-          width={160}
-          height={160}
+          height={165}
           alt="images"
         />
       </div>
@@ -28,7 +27,7 @@ export default function CompanyValue({ companyValue }: CompanyValueProps) {
       <ul className={styles.wCol}>
         {companyValue.items.map((item) => (
           <li key={item} className='pt-list pro'>
-            <PTText size='lg' weight='400' className={styles.textBox}>{item}</PTText>
+            <PTText size='md' weight='400' className={styles.textBox}>{item}</PTText>
           </li>
         ))}
       </ul>

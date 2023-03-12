@@ -8,7 +8,7 @@ export default function ProfessionalAccompaniment() {
   return (
     <div className={styles.container}>
       <div className={styles.containerImg}>
-        <Image src={iconAutomation} height={165} alt="automation" />
+        <Image src={iconAutomation} height={200} alt="automation" />
       </div>
 
       <div className={styles.containerInfo}>

@@ -4,8 +4,8 @@
   border-radius: 10px;
   transition: 0.2s, box-shadow 0.3s;
   height: auto;
-  width: 440px;
-  padding: 2rem;
+  width: 25rem;
+  padding: 1.5rem;
   background-color: var(--ternary-color);
   display: flex;
   margin-top: 17px;
@@ -18,6 +18,7 @@
   display: flex;
   margin-bottom: 23px;
   color: var(--white-color);
+  padding: 10px;
 }
 
 .button {

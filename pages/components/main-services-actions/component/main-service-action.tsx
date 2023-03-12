@@ -18,7 +18,7 @@ export default function ServicesActionComponent({
       className={styles.containerCards}
     >
       <PTText
-        size="lg"
+        size="md"
         weight="500"
         className={styles.headingBox}
       >

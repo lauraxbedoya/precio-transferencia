@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { Question } from '@/interfaces/should-declare-question.interface';
 import styles from './form-question.module.scss';
 import iconQuestions from '@/public/form-should-declare/question-icon.png';

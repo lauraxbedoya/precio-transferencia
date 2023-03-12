@@ -1,13 +1,13 @@
 import CompanyValue from './component/company-value';
 import styles from './company-value.module.scss';
 import PTText from '@/components/text/pt-text';
-import calculadoraImg from '@/public/calculadora-home.png';
-import marranitoImg from '@/public/marranito-home.png';
-import seguroImg from '@/public/seguro-home.png';
+import globalImage from '@/public/global.png';
+import marranitoImg from '@/public/ping-savings.png';
+import moneyImage from '@/public/savings.jpeg';
 
 const companyValues = [
   {
-    image: calculadoraImg,
+    image: globalImage,
     title: 'Seguro',
     items: [
       'Garantizamos que tu declaración de Precios de Transferencianferencia cumpla con los requisitos exigidos por la ley Colombiana.',
@@ -24,7 +24,7 @@ const companyValues = [
     ],
   },
   {
-    image: seguroImg,
+    image: moneyImage,
     title: 'Precios justos',
     items: ['Los precios más competitivos del mercado.'],
   },

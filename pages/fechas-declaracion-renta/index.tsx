@@ -12,6 +12,8 @@ import Image from 'next/image';
 import logoCompany from '@/public/logo/logofull.png';
 import calendar from '@/public/calendar.png';
 import { Toast } from 'primereact/toast';
+import Loading from '@/components/loading/loading';
+
 
 export default function FechasDeclaracionRenta() {
   const toast = useRef<Toast>(null);
@@ -20,6 +22,7 @@ export default function FechasDeclaracionRenta() {
   const [formUser, setFormUser] = useState<Partial<User> | null>(user);
   const [lastNitDigit, setLastNitDigit] = useState<number | undefined>();
   const [statemenMaxDate, setStatemenMaxDate] = useState<MaxDate>();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setFormUser({
@@ -68,21 +71,24 @@ export default function FechasDeclaracionRenta() {
       });
       return;
     }
+    setLoading(true);
     const resp = await api.post('fechas-declaracion-renta', {
       user: { ...formUser, createdFrom: 'date_declare' },
       lastNITDigit: lastNitDigit,
     });
+    setLoading(false);
     setStatemenMaxDate(resp.data);
   };
 
   return (
     <div className={styles.container}>
+      <Loading isLoading={loading} />
       <Toast ref={toast} />
       <div className={styles.subContainer}>
         <div className={styles.containerLogoAndTitle}>
           <Image src={logoCompany} height={100} alt="logoCompany" />
           <PTText asTag="h2" size="xl" weight="600" className={styles.title}>
-            ¿Ya conoces las fechas para la declaración de renta en éste 2023?
+            ¿Ya conoces las fechas para la declaración informativa de Precios de Transferencia en éste 2023?
           </PTText>
         </div>
 

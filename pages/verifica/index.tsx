@@ -2,23 +2,22 @@ import Image from 'next/image';
 import styles from './should-declare.module.scss';
 import logoCompany from '@/public//logo/logofull.png';
 import PTText from '@/components/text/pt-text';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import FormQuestionShouldDeclare from './components/form/form-question-should-declare';
 import { api } from '@/helpers/api.helper';
-import {
-  Answer,
-  Question,
-} from '@/interfaces/should-declare-question.interface';
+import { Answer, Question, } from '@/interfaces/should-declare-question.interface';
 import { useAppSelector } from '@/redux/store';
 import { User } from '@/interfaces/user.interface';
 import Router from 'next/router';
 import UserInfoShouldDeclare from './components/user-info';
-import ShouldDeclareResponseMessage, {
-  ShouldDeclareMessages,
-} from './components/should-declare-response-message/should-declare-response-message';
+import ShouldDeclareResponseMessage, { ShouldDeclareMessages } from './components/should-declare-response-message/should-declare-response-message';
 import { cipher, secretKey } from '@/utils/crypto';
+import { Toast } from 'primereact/toast';
+import Loading from '@/components/loading/loading';
+import consultImage from '@/public/consult.png';
 
 function ObligadosDeclararRenta2023() {
+  const toast = useRef<Toast>(null);
   const [termsConditions, setTermsConditions] = useState(true);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [questionsToShow, setQuestionsToShow] = useState<Question[]>([]);
@@ -28,6 +27,8 @@ function ObligadosDeclararRenta2023() {
   const [nit, setNit] = useState<string>('');
   const [shouldDeclareResponse, setShouldDeclareResponse] =
     useState<ShouldDeclareMessages>();
+  const [loading, setLoading] = useState(false);
+
 
   const getAllQuestions = async () => {
     try {
@@ -118,13 +119,21 @@ function ObligadosDeclararRenta2023() {
 
   const handleSubmitShouldDeclare = async () => {
     // const answer = answers.find((ans) => ans.answer);
-    if (answers.length < 4) {
+    if (nit.length < 9 || nit.length > 9) {
+      toast?.current?.show({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'El NIT debe contener 9 dígitos',
+        life: 2000,
+      });
+    } else if (answers.length < 4) {
       alert('Todas las respuestas son requeridas.');
     } else {
       if (!formUser?.name || !formUser.lastName || !formUser?.email || !nit) {
         alert('Todos los campos son requeridos.');
       } else {
         try {
+          setLoading(true);
           const resp = await api.post<ShouldDeclareMessages>(
             'should-declare/create-submission',
             {
@@ -133,6 +142,7 @@ function ObligadosDeclararRenta2023() {
               answers,
             },
           );
+          setLoading(false);
           if (resp.data) {
             setShouldDeclareResponse(resp.data);
           }
@@ -155,6 +165,15 @@ function ObligadosDeclararRenta2023() {
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.name === 'nit' && e.target.value.length > 9) {
+      toast?.current?.show({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'El NIT debe contener 9 dígitos',
+        life: 2000
+      });
+      return
+    }
     if (e.target.name === 'nit') {
       setNit(e.target.value);
     } else {
@@ -179,19 +198,25 @@ function ObligadosDeclararRenta2023() {
 
   return (
     <div className={styles.overflow}>
+      <Loading isLoading={loading} />
+      <Toast ref={toast} />
       <div className={styles.conditionsToPayTaxWrapper}>
         <div className={styles.conditionFormContent}>
           <div className={styles.logoHeader}>
             <Image src={logoCompany} height={90} alt="logoCompany" />
-            <PTText
-              asTag="h1"
-              size="xl"
-              weight="600"
-              className={styles.formHead}
-            >
-              ¡Averigua si tu compañía está sujeta al régimen de precios de
-              transferencia para el año fiscal 2022!
-            </PTText>
+            <div className={styles.divImagesAndTitle}>
+              <Image src={consultImage} height={70} alt="consult" />
+              <PTText
+                asTag="h1"
+                size="xl"
+                weight="600"
+                className={styles.formHead}
+              >
+                ¡Averigua si tu compañía está sujeta al régimen de precios de
+                transferencia para el año fiscal 2022!
+              </PTText>
+              <Image src={consultImage} height={70} alt="consult" />
+            </div>
           </div>
           <div className={styles.questionsDivider}></div>
 

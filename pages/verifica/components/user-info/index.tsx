@@ -70,6 +70,8 @@ function UserInfoShouldDeclare({
               onChange={onChange}
               label="NIT *"
               placeholder="Ingresa el NIT sin el dígito de verificación"
+              maxLength={9}
+              minLength={9}
             />
           </div>
         </div>

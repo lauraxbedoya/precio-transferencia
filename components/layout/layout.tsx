@@ -36,12 +36,12 @@ function Layout({ children }: Props) {
           </PTText>
           {!user ? (
             <Link href="/sign-in">
-              <PTButton isMain={true} size="md">
+              <PTButton isMain={true} size="sm">
                 Ingresar o Registrarse
               </PTButton>
             </Link>
           ) : (
-            <PTButton isMain={true} onClick={handleLogout} size="md">
+            <PTButton isMain={true} onClick={handleLogout} size="sm">
               Cerrar Sesión
             </PTButton>
           )}

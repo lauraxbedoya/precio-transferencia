@@ -19,6 +19,8 @@ import styles from './sign-up.module.scss';
 import PTInput from '@/components/input/pt-input';
 import { Toast } from 'primereact/toast';
 import { AxiosError } from 'axios';
+import Loading from '@/components/loading/loading';
+
 
 export default function SignUp() {
   const toast = useRef<Toast>(null);
@@ -32,6 +34,7 @@ export default function SignUp() {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const recaptchaRef = React.createRef<ReCAPTCHA>();
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e: any) => {
     setValues({
@@ -59,19 +62,21 @@ export default function SignUp() {
       if (values.password === values.confirmPassword) {
         try {
           const { confirmPassword, ...toBeSent } = values;
+          setLoading(true);
           const resp = await api.post('/users', {
             ...toBeSent,
             createdFrom: 'sign_up',
           });
+          setLoading(false);
           if (resp.data.id) {
             const { type } = await dispatch(signInUser(values));
             if (type === 'session/signInUser/fulfilled') {
+              router.push('/');
               toast?.current?.show({
                 severity: 'success',
                 summary: 'Felicitaciones',
                 detail: 'Cuenta creada exitosamente',
               });
-              router.push('/');
             }
           }
         } catch (error: any) {
@@ -115,6 +120,7 @@ export default function SignUp() {
 
   return (
     <div className={styles.container}>
+      <Loading isLoading={loading} />
       <Toast ref={toast} />
       <div className={styles.cardContent}>
         <div className={styles.containerClose}>

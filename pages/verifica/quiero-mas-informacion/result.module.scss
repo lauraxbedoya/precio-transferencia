@@ -17,8 +17,26 @@
   box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
   transition: box-shadow 0.3s;
   text-align: center;
-  width: 44%;
-  padding: 0px 0px 29px;
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricingV1Badge {
+  position: absolute;
+  top: -55px;
+  right: -70px;
+  display: flex;
+  width: 150px;
+  height: 123px;
+  padding-bottom: 7px;
+  padding-left: 1px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: var(--secondary-color);
+  transform: rotate(45deg);
+  color: var(--white-color);
 }
 
 .containerDivInfo {

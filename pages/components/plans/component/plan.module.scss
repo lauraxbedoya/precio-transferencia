@@ -20,11 +20,11 @@
 
 .pricingV1Badge {
   position: absolute;
-  top: -60px;
-  right: -60px;
+  top: -55px;
+  right: -70px;
   display: flex;
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 123px;
   padding-bottom: 7px;
   padding-left: 1px;
   flex-direction: column;
@@ -33,9 +33,6 @@
   background-color: #253f6f;
   transform: rotate(45deg);
   color: #fff;
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 700;
 }
 
 .headingBox {

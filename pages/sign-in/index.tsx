@@ -18,6 +18,8 @@ import PTText from '@/components/text/pt-text';
 import PTInput from '@/components/input/pt-input';
 import PTButton from '@/components/button/pt-button';
 import { Toast } from 'primereact/toast';
+import Loading from '@/components/loading/loading';
+
 
 export default function SignIn() {
   const toast = useRef<Toast>(null);
@@ -29,9 +31,11 @@ export default function SignIn() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const [isRedirecting, setIsRedirecting] = useState(false);
-  const { user, error, loading } = useAppSelector((state) => state.session);
-  const [gUser, gLoading] = useAuthState(auth);
+  const { user, error } = useAppSelector((state) => state.session);
+  // const [gUser, gLoading] = useAuthState(auth);
   const recaptchaRef = React.createRef<ReCAPTCHA>();
+  const [loading, setLoading] = useState(false);
+
 
   const checkIsUserLogged = () => {
     const token = localStorage.getItem('tkn');
@@ -57,7 +61,9 @@ export default function SignIn() {
     } else {
       // const recaptchaValue = recaptchaRef.current?.getValue();
       // if (recaptchaValue) {
+      setLoading(true);
       const { type } = await dispatch(signInUser(values));
+      setLoading(false);
       if (type === 'session/signInUser/fulfilled') {
         toast?.current?.show({
           severity: 'success',
@@ -71,6 +77,7 @@ export default function SignIn() {
   const googleProvider = new GoogleAuthProvider();
   const handleSignInGoogle = async () => {
     try {
+      setLoading(true);
       const result: UserCredential = await signInWithPopup(
         auth,
         googleProvider,
@@ -91,14 +98,14 @@ export default function SignIn() {
   useEffect(checkIsUserLogged, [router.pathname]);
 
   useEffect(() => {
-    if (!gLoading && !loading && user) {
+    if (!loading && user) {
       router.push('/');
       setIsRedirecting(true);
     }
-  }, [user, router, gLoading]);
+  }, [user, router, loading]);
 
-  if (loading || gLoading || isRedirecting) {
-    return <h1>Loading...</h1>;
+  if (loading || isRedirecting) {
+    return <Loading isLoading={loading} />;
   }
 
   const handlerecaptcha = (value: any) => {
@@ -107,6 +114,7 @@ export default function SignIn() {
 
   return (
     <div className={styles.container}>
+      <Loading isLoading={loading} />
       <Toast ref={toast} />
       <div className={styles.cardContent}>
         <div className={styles.containerClose}>
@@ -212,6 +220,7 @@ export default function SignIn() {
 
         {user && <pre>{user.email}</pre>}
       </div>
+      {/* <ProgressSpinner /> */}
     </div>
   );
 }

@@ -51,9 +51,8 @@
 .formHead {
   margin-top: 20px;
   margin-bottom: 0;
-  padding-top: 0;
-  line-height: 28px;
-  padding: 20px;
+  line-height: 35px;
+  padding: 12px 23px;
 }
 
 .questionsDivider {
@@ -62,6 +61,12 @@
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: var(--border-input-color);
+}
+
+.divImagesAndTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .questionFormContainer {

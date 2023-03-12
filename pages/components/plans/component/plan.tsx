@@ -1,6 +1,8 @@
 import PTButton from '@/components/button/pt-button';
 import PTText from '@/components/text/pt-text';
+import Image from 'next/image';
 import styles from './plan.module.scss';
+import imageConfigure from '@/public/goal.png';
 
 export interface PaidPlansProps {
   paidPlan: {
@@ -29,7 +31,13 @@ export default function Plan({ paidPlan }: PaidPlansProps) {
             ? { backgroundColor: 'var(--white-color)' }
             : { backgroundColor: 'var(--ternary-color)' }
         }
-      ></div>
+      >{paidPlan.isPro &&
+        <>
+          <Image src={imageConfigure} alt="configure" height={32} />
+          <PTText size='xxxs' weight='500'>Recomendado</PTText>
+        </>
+        }
+      </div>
       <div className={styles.upper}>
         <PTText asTag="h1" size="xl" weight="700" className={styles.headingBox}>
           {paidPlan.plan}

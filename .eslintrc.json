@@ -1,6 +1,8 @@
 {
-  "extends": "next/core-web-vitals",
+  // "extends": "next/core-web-vitals",
+  "extends": "next",
   "rules": {
-    "prefer-const": "error"
+    "prefer-const": "error",
+    "@next/next/no-sync-scripts": "off"
   }
 }
