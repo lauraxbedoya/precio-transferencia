@@ -1,16 +1,16 @@
-import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
 
 export const getApiHeader = () => {
   const token = localStorage.getItem('tkn');
   return {
     'content-type': 'application/json',
-    'Authorization': `Bearer ${token}`,
-    'Access-Control-Allow-Origin': '*'
-  }
-}
+    Authorization: `Bearer ${token}`,
+    'Access-Control-Allow-Origin': '*',
+  };
+};
 
 export const axiosInstance: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:3000/',
+  baseURL: process.env.NEXT_PUBLIC_BASE_API_URL,
 });
 
 export const handleApiError = (e: AxiosError): string => {
@@ -21,14 +21,17 @@ export const handleApiError = (e: AxiosError): string => {
     case 401:
       return 'No Autorizado';
     case 500:
-      return 'Ups, algo ha fallado, intentalo nuevamente'
+      return 'Ups, algo ha fallado, intentalo nuevamente';
     default:
-      return error.message
+      return error.message;
   }
-}
+};
 
 export const api = {
-  async post<T = any, R = AxiosResponse<T, any>>(url: string, data: unknown): Promise<R> {
+  async post<T = any, R = AxiosResponse<T, any>>(
+    url: string,
+    data: unknown,
+  ): Promise<R> {
     return axiosInstance.post(url, data, { headers: getApiHeader() });
   },
   async get<T = any, R = AxiosResponse<T, any>>(url: string): Promise<R> {
@@ -43,4 +46,4 @@ export const api = {
   async delete<T = any, R = AxiosResponse<T, any>>(url: string): Promise<R> {
     return axiosInstance.delete(url, { headers: getApiHeader() });
   },
-}
+};
